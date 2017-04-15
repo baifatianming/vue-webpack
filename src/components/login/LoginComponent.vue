@@ -2,7 +2,7 @@
 	<div class="loginContent">
 		<form class="form-horizontal">
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+		    <label for="inputEmail3" class="col-sm-2 control-label">用户4444名</label>
 		    <div class="col-sm-10">
 		      <input class="form-control" v-model="name">
 		    </div>

@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
+  devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, './dist'),
