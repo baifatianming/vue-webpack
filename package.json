@@ -16,7 +16,6 @@
     "express-session": "^1.15.2",
     "jquery": "^3.2.1",
     "mysql": "^2.13.0",
-    "node-sass": "^4.5.2",
     "raw-loader": "^0.5.1",
     "superagent": "^3.5.2",
     "superagent-jsonp": "^0.1.1",
