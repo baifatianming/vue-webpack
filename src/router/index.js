@@ -4,7 +4,7 @@ import http from '../utils/HttpClient'
 
 import indexComponent from '../components/index/indexComponent.vue'
 import LoginComponent from '../components/login/LoginComponent.vue'
-
+import commentComponent from '../components/comment/commentComponent.vue'
 
 Vue.use(VueRouter)
 
@@ -17,7 +17,11 @@ const router = new VueRouter({
 		path: '/login',
 		name: 'login',
 		component: LoginComponent
-	}]
+	},{
+    path:'/comment',
+    name:'comment',
+    component:commentComponent
+  }]
 })
 
 //对将要进入的路由进行权判断
