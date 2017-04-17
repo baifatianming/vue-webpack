@@ -4,7 +4,11 @@ import http from '../utils/HttpClient'
 
 import indexComponent from '../components/index/indexComponent.vue'
 import LoginComponent from '../components/login/LoginComponent.vue'
+<<<<<<< HEAD
 // import '../../src/components/header.js';
+=======
+import commentComponent from '../components/comment/commentComponent.vue'
+>>>>>>> 706ce368493e069eec1ca008f4d99306fda9d1f3
 
 Vue.use(VueRouter)
 console.log(indexComponent)
@@ -17,7 +21,11 @@ const router = new VueRouter({
 		path: '/login',
 		name: 'login',
 		component: LoginComponent
-	}]
+	},{
+    path:'/comment',
+    name:'comment',
+    component:commentComponent
+  }]
 })
 
 //对将要进入的路由进行权判断

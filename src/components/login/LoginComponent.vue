@@ -48,7 +48,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style>
 	.loginContent{
 		width: 400px;
 		margin: auto;
