@@ -1,0 +1,50 @@
+#introduce{
+  background:#F8F8F8;
+  box-sizing: border-box;
+}
+#introduce .introduceTop{
+  width: 100%;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
+#introduce a{
+  color: #dadada;
+  text-decoration: none;
+}
+#introduce i{
+  display: block;
+  width:45px;
+  height:45px;
+  background: url(../../../img/list.png)  50% 0px no-repeat;
+  background-size:45px auto;
+  margin:auto;
+}
+.introduceTop{
+  box-sizing: border-box;
+  padding:20px 0;
+  margin:auto;
+}
+#introduce .touch{
+  background: url(../../../img/list.png)  50% -135px no-repeat;
+  background-size:45px auto;
+}
+#introduce .computer{
+  background: url(../../../img/list.png)  50% -180px no-repeat;
+  background-size:45px auto;
+}
+#introduce ul{
+  width: 80%;
+  margin:auto;
+}
+#introduce ul li{
+  float: left;
+  text-align: center;
+  width: 33%;
+}
+#introduce p{
+  height:50px;
+  font-size: 12px;
+  line-height: 50px;
+  text-align: center;
+  color:#adadad;
+}

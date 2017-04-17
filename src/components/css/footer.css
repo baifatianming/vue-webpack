@@ -1,0 +1,46 @@
+#footer{
+  width: 100%;
+  position: fixed;
+  bottom:0;
+  height:50px;
+  background:#4d3126;
+  box-sizing: border-box;
+  padding:8px 0;
+}
+#footer a{
+  color: white;
+  text-decoration: none;
+}
+#footer i{
+  display: block;
+  width: 20px;
+  height:20px;
+  background: url(../../../img/wxb主页.png) no-repeat center;
+  background-size:100%;
+  margin:auto ;
+}
+#footer .comment{
+  background: url(../../../img/comments.png) no-repeat center;
+  background-size: 100%;
+}
+
+#footer .favourite{
+  background: url(../../../img/favorite.png) no-repeat center;
+  background-size:100%;
+}
+#footer .account{
+  background: url(../../../img/account.png) no-repeat center;
+  background-size: 100%;
+}
+#footer .cart{
+  background: url(../../../img/cart.png) no-repeat center;
+  background-size: 100%;
+}
+#footer ul li{
+  padding: 0 5px;
+  color:white;
+  font-size:10px;
+  text-align: center;
+  float:left;
+  width: 20%;
+}

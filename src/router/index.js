@@ -4,10 +4,10 @@ import http from '../utils/HttpClient'
 
 import indexComponent from '../components/index/indexComponent.vue'
 import LoginComponent from '../components/login/LoginComponent.vue'
-
+// import '../../src/components/header.js';
 
 Vue.use(VueRouter)
-
+console.log(indexComponent)
 const router = new VueRouter({
 	routes: [{
 		path: '/',
