@@ -8,6 +8,12 @@
 		    </div>
 		  </div>
 		  <div class="form-group">
+		    <label  class="col-sm-2 control-label">手机号码</label>
+		    <div class="col-sm-10">
+		      <input type="number" class="form-control" v-model="phone">
+		    </div>
+		  </div>
+		  <div class="form-group">
 		    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 		    <div class="col-sm-10">
 		      <input type="password" class="form-control" v-model="psw">
@@ -15,7 +21,7 @@
 		  </div>
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		    	<input type="button" value="登录" class="btn btn-default" @click="login">
+		    	<input type="button" value="注册" class="btn btn-default" @click="submit">
 		    </div>
 		  </div>
 		</form>
@@ -34,22 +40,15 @@
 		data: function(){
 			return {
 				name: 'Tom',
+				phone: '223232',
 				psw: 123456
 			}
 		},
 		methods:{
-			login: function(){
-				
-				// http.post('login.php', {username: this.name, password: this.pwd})
-				// .then(response => {
-				// 	console.log(response.data)
-				// 	// if(response.state){
-				// 	// 	VueRouter.push({name: 'home'})
-				// 	// }
-				// })
-
-				var username=this.name;
+			submit: function(){
+				var name=this.name;
 				var psw=this.psw;
+				var phone=this.phone;
 				// var params = new URLSearchParams();
 				// params.append('username', username);
 				// params.append('psw', psw);
@@ -69,12 +68,11 @@
 				// 	console.log(1212);
 				// })
 
-
 				$.ajax({
-					url: 'php/login.php',
+					url: 'php/reg.php',
 					type: 'post',
 					dataType: 'json',
-					data: {'username': username,'psw':psw},
+					data: {'username': name,'psw':psw,'phone':phone},
 				})
 				.done(function(success) {
 					console.log(success);

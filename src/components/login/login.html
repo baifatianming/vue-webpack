@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+	<link rel="stylesheet" href="mui.min.css">
+	<script src='../js/vue.js'></script>
+	<script src='../js/axios.min.js'></script>
+</head>
+<body>
+	<form class="mui-input-group" id='app'>
+	    <div class="mui-input-row">
+	        <label>用户名</label>
+	    <input type="text" class="mui-input-clear" placeholder="请输入用户名" v-model="username">
+	    </div>
+	    <div class="mui-input-row">
+	        <label>密码</label>
+	        <input type="password" class="mui-input-password" placeholder="请输入密码" v-model="psw">
+	    </div>
+	    <div class="mui-button-row">
+	        <button type="button" class="mui-btn mui-btn-primary" @click="submit" >登录</button>
+	        <!-- <button type="button" class="mui-btn mui-btn-danger" >取消</button> -->
+	    </div>
+	</form>
+	<script type="text/javascript">
+		var vm= new Vue({
+			el:"#app",
+			data:{
+				username:"example",
+				psw:""
+			},
+			methods:{
+				submit:function(){
+					var username=this.username;
+					var psw=this.psw;
+					//此方法向后台传参数需要
+					var params = new URLSearchParams();
+					params.append('username', username);
+					params.append('psw', psw);
+					axios.post('login.php',params).then(function(response){
+						if(response.data=='登录成功'){
+							alert('登录成功')
+						}
+						else{
+							alert('检查用户名密码是否正确');
+						}
+					})
+					.catch(function(error){//客户端出错才会进入这
+						document.write(error.data);
+						console.log(1212);
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>
