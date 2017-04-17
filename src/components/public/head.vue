@@ -13,10 +13,10 @@
         <li v-for="(key,index) in listAll"><span class="ui-btn" @click='goToShow' :index="index">{{key}}</span></li>
       </ul>
       <ul class="clear listAll" v-if="show">
-        <li class="goA"><router-link to="#">NEW!{{sex}}上新&爆款<i class="go"></i></router-link></li>
+        <li class="goA" @click="gotoGoods"><router-link to="/goodslist" >NEW!{{sex}}上新&爆款<i class="go"></i></router-link></li>
         <li @click.stop="goToshow1" v-for="(key,index) in listClassify"><i class="up"></i>{{key.name}}
           <ul class="hide">
-            <li class="goA list_li" v-for="key1 in key.item"><router-link to="#">{{key1}}<i class="go"></i></router-link></li>
+            <li class="goA list_li" v-for="key1 in key.item" @click="gotoGoods"><router-link to="#">{{key1}}<i class="go"></i></router-link></li>
           </ul>
         </li>
       </ul>
@@ -66,6 +66,10 @@
           e.target.children[1].className=='hide'? e.target.children[1].className='':e.target.children[1].className='hide';
           e.target.firstChild.className=="down"? e.target.firstChild.className="up":e.target.firstChild.className="down";
         }
+      },
+      gotoGoods:function(){
+        console.log(1);
+        this.show=false;
       }
     }
   }

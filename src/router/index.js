@@ -6,7 +6,7 @@ import indexComponent from '../components/index/indexComponent.vue'
 import LoginComponent from '../components/login/LoginComponent.vue'
 
 import commentComponent from '../components/comment/commentComponent.vue'
-
+import goodslist from '../components/goodslist/goodslist.vue'
 
 Vue.use(VueRouter)
 console.log(indexComponent)
@@ -23,6 +23,10 @@ const router = new VueRouter({
     path:'/comment',
     name:'comment',
     component:commentComponent
+  },{
+    path:'/goodslist',
+    name:'/goodslist',
+    component:goodslist
   }]
 })
 
