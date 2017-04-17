@@ -1,15 +1,14 @@
 body,li,ul{padding: 0;margin:0;font-family: '微软雅黑';list-style: none}
-
 .clear:after{
   content: '';
   display: block;
   clear: both;
 }
 #main-header{
-    border-style: none;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
+  border-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
 }
 #main-header #logo{
   display: block;
@@ -30,11 +29,11 @@ body,li,ul{padding: 0;margin:0;font-family: '微软雅黑';list-style: none}
   margin-top: 10px;
   margin-right:10px;
 }
-#main-nav ul{
+#main-nav .listType{
   border-top: 1px solid;
   border-bottom:1px solid;
 }
-#main-nav li{
+#main-nav .listType li{
   width: 16%;
   float: left;
   background-color:#fff;
@@ -42,17 +41,17 @@ body,li,ul{padding: 0;margin:0;font-family: '微软雅黑';list-style: none}
   line-height: 34px;
   text-align: center;
 }
-#main-nav li:first-child{
+#main-nav .listType li:first-child{
   margin-left:5px;
 }
 
 #main-nav .ui-btn{
-    padding: 5px 0;
-    color: #5c5c5c;
-    font-size: 13px;
-    vertical-align: middle;
-    background-color: #fff;
-    border: none;
+  padding: 5px 0;
+  color: #5c5c5c;
+  font-size: 13px;
+  vertical-align: middle;
+  background-color: #fff;
+  border: none;
 }
 
 #main-content{
@@ -90,8 +89,62 @@ body,li,ul{padding: 0;margin:0;font-family: '微软雅黑';list-style: none}
   color: #999;
 }
 .comment-template .comment-container .comment-content{
-margin: 10px 0 20px 0;
-    font-size: 14px;
-    color: #5c5c5c;
-    word-break: break-all;
+  margin: 10px 0 20px 0;
+  font-size: 14px;
+  color: #5c5c5c;
+  word-break: break-all;
+}
+.listAll{
+  width:100%;
+  top:20%;
+  position: absolute;
+  background:#ebebeb;
+  font-size: 16px;
+}
+.listAll li{
+  font-weight: normal;
+  padding:8px;
+  clear:left;
+  border-bottom: 1px solid #ddd;
+}
+.listAll a{
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+.list_li a{
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+.goA{
+  background:#f0f0f0;
+}
+.up{
+  display: inline-block;
+  width:20px;
+  height:20px;
+  background: url(../../imgs/up.png) no-repeat center;
+  background-size:100%;
+  vertical-align: bottom;
+}
+.go{
+ display: inline-block;
+ width:20px;
+ height:20px;
+ background: url(../../imgs/go.png) no-repeat center;
+ background-size: 100%;
+ float: right;
+}
+.down{
+ display: inline-block;
+ width:20px;
+ height:20px;
+ background: url(../../imgs/top.png) no-repeat center;
+ background-size:100%;
+ vertical-align: bottom;
+}
+.listTo{
+  padding: 8px;
+  background:#f0f0f0;
 }

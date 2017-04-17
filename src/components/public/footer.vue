@@ -13,7 +13,6 @@
 <script>
 import '../css/footer.css'
   export default{
-    name:'footer',
-
+    name:'footer'
   }
 </script>
