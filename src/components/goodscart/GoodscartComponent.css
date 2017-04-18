@@ -1,0 +1,62 @@
+h3,ul,li{
+	margin:0;
+	margin-left:0;
+	margin-right:0;
+	padding: 0;
+}
+.clear:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.goodscart ul>li{
+	height: 80px;
+	width: 100%;
+	float: left;
+	margin:0;
+	margin-left:0;
+	margin-right:0;
+	position: relative;
+
+}
+.goodscart ul>li>img{ 
+	margin-left: 10px;
+	float: left;
+	width: 70px;
+	height: 70px;
+	border:1px solid black;
+}
+.goodscart ul>li>span{
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+}
+/*.mesg{
+	padding-left: 10px;
+	float: left;
+}*/
+.mesg input{
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+.mesg em{
+	float: left;
+	font-size: 20px;
+	width: 20px;
+	line-height: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+.box{
+	padding-left: 10px;
+	float: left;
+}
+.box h3{
+	/*float: left;*/
+	text-align: left;
+}
+.box strong{
+	display: block;
+	text-align: left;
+}

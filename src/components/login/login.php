@@ -21,6 +21,7 @@
     $sql = 'select * from user';
     $res = $con->query($sql);
 
+    
     //2 获取的用户信息与当前注册信息进行
     $bool = true;
     //数据库查询结果的长度 $res->num_rows

@@ -20,6 +20,8 @@
     $sql = 'select * from user';
     $res = $con->query($sql);
 
+    // print_r( json_encode($res) );
+    // return false;
     //2 获取的用户信息与当前注册信息进行
     $bool = true;
     //数据库查询结果的长度 $res->num_rows
@@ -31,7 +33,9 @@
             //判断用户是否注册
             if($row['userName'] == $name){
                 $bool = false; //表示用户已注册
-                if( $row['psw'] == $psw ){
+                if( $row['passWord'] == $psw ){
+                    session_start();
+                    $_SESSION['username']=$name;//设置session
                     echo "登录成功";
                     return false;
                 }else{
