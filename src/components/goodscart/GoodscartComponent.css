@@ -1,8 +1,20 @@
-h3,ul,li{
+h3,ul,li,button{
 	margin:0;
 	margin-left:0;
 	margin-right:0;
 	padding: 0;
+	border:none;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	/*width: 100%;*/
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+	margin: 5px;
+
 }
 .clear:after{
 	content: "";
@@ -10,12 +22,16 @@ h3,ul,li{
 	clear: both;
 }
 .goodscart ul>li{
+	width: 90%;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
 	height: 80px;
-	width: 100%;
 	float: left;
 	margin:0;
-	margin-left:0;
-	margin-right:0;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:5px;
 	position: relative;
 
 }
@@ -24,18 +40,15 @@ h3,ul,li{
 	float: left;
 	width: 70px;
 	height: 70px;
-	border:1px solid black;
+	border:1px solid #ccc;
 }
 .goodscart ul>li>span{
 	position: absolute;
 	bottom: 10px;
 	right: 20px;
 }
-/*.mesg{
-	padding-left: 10px;
-	float: left;
-}*/
 .mesg input{
+	text-align: center;
 	float: left;
 	width: 20px;
 	height: 20px;
@@ -46,7 +59,7 @@ h3,ul,li{
 	width: 20px;
 	line-height: 20px;
 	height: 20px;
-	border: 1px solid black;
+	border: 1px solid #ccc;
 }
 .box{
 	padding-left: 10px;
@@ -59,4 +72,25 @@ h3,ul,li{
 .box strong{
 	display: block;
 	text-align: left;
+}
+.footer{
+	float: left;
+	width: 100%;
+	padding: 5px 30px;
+}
+.footer strong{
+	float: right;
+}
+button{	
+	font-size: 20px;
+	color: white!important;
+	font-weight: bold;
+	float: left;
+	width: 80%;
+	text-align: center;
+	border-radius: 4px;
+	background: #f63;
+	padding:10px 0;
+	margin-left: 50%;
+	transform: translateX(-50%);
 }

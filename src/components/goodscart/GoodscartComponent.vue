@@ -1,12 +1,13 @@
 <template>
 	<div class="goodscart" >
 		<h1>购物车</h1>
-		<ul>
+		<ul class="clear">
+				<h2 v-if="!ssitems[0]">你的购物车是空的</h2>
 			<li v-for="(item, index) in ssitems">
 				<img src="" alt="">
 				<div class="box clear">
 					<h3>1212</h3>
-					<strong>{{item.price}}</strong>
+					<strong>单价：￥{{item.price}}</strong>
 					<div class="mesg clear">
 						<em @click="modify(--item.num,item.goodsId)">-</em>
 						<input type="number" v-model:value="item.num">
@@ -14,8 +15,14 @@
 					</div>
 				</div>
 				<span @click="remove(item.goodsId)">delete</span>
+			
 			</li>
+			<span class="footer">
+				<span>共{{sum}}件商品</span>
+				<strong>总金额￥{{sumPrice}}元</strong>
+			</span>
 		</ul>
+		<button >结算</button>
 	</div>
 </template>
 
@@ -30,81 +37,97 @@
 		name: 'home',
 		data: function(){
 			return {
+				sum:0,
+				sumPrice:0,
 				ssitems:[],
 				name: 'Tom',
 				psw: 123456
 			}
 		},
 		methods:{
-			// login: function(){
-
-			// 	var username=this.name;
-			// 	var psw=this.psw;
-
-			// 	$.ajax({
-			// 		url: 'php/login.php',
-			// 		type: 'post',
-			// 		dataType: 'json',
-			// 		data: {'username': username,'psw':psw},
-			// 	})
-			// 	.done(function(success) {
-			// 		console.log(success);
-			// 	})
-			// 	.fail(function(error) {
-			// 		console.log(error);
-			// 		document.write(error.responseText);
-			// 	})
-			// 	.always(function() {
-			// 		console.log("complete");
-			// 	});
-				
-			// },
 			modify:function(num,goodsId){
+				//修改总数量
+				var init=0
+				for(var i=0 ;i<this.ssitems.length;i++){
+					if(this.ssitems[i].goodsId==goodsId){
+						this.ssitems[i].num=num;
+					}
+					init+=parseInt(this.ssitems[i].num);
+				}
+				this.sum=parseInt(init);
+				// 修改总金额
+				var start=0;
+				for(var i=0 ;i<this.ssitems.length;i++){
+					// 上面已经修改数量，此处不必在修改
+					start+=parseInt(this.ssitems[i].num)*parseInt(this.ssitems[i].price);
+				}
+				this.sumPrice =start;
 				$.post('php/goodscart.php',{'type':'modify','num':num,"goodsId":goodsId},function(res){
 					console.log(res);
 				})
-				console.log(this.name)
 
 			},
 			remove:function(goodsId){
+				//刷新数据，点击的时候可以从页面马上移除
 				var arr=[];
 				for(var i=0 ;i<this.ssitems.length;i++){
 					if(this.ssitems[i].goodsId!=goodsId){
 						arr.push(this.ssitems[i])
 					}
 				}
-				this.ssitems=arr;//刷新数据，点击的时候可以从页面移除
+				// 修改总数量
+				for(var i=0 ;i<this.ssitems.length;i++){
+					if(this.ssitems[i].goodsId==goodsId){
+						this.sum-=(this.ssitems[i].num);
+					}
+				}
+				// 修改总金额
+				for(var i=0 ;i<this.ssitems.length;i++){
+					if(this.ssitems[i].goodsId==goodsId){
+						this.sumPrice-=parseInt(this.ssitems[i].num)*parseInt(this.ssitems[i].price);
+					}
+				}
+				this.ssitems=arr;
 				$.post('php/goodscart.php',{'type':'remove',"goodsId":goodsId},function(res){
 					console.log(res);
 				})
 			}
 		},
 		computed:{
-			// items:{
-			// 	get:function(){
+			items:{
+				get:function(){
 					
-			// 		$.post('php/goodscart.php',{'type':'find'},function(res){
-			// 			console.log(JSON.parse(res));
-			// 			console.log(res);
-			// 			// self.items=JSON.parse(res);
-			// 			// return JSON.parse(res);
-			// 			// return [{price:111,num:22},{price:3,num:24}];
-			// 		})
-			// 		return [{price:111,num:22},{price:3,num:24}];
-			// 		// this.items=[{price:111,num:22},{price:3,num:24}];
+					$.post('php/goods.php',{'type':'find'},function(res){
+						console.log(JSON.parse(res));
+						console.log(res);
+						return res;
+					})
+					return res;
 
-			// 	},
-			// 	set:function(newVal){
+				},
+				set:function(newVal){
 
-			// 	}
-			// }
+				}
+			}
 		},
 		created:function(){
 			var self=this;
 			$.post('php/goodscart.php',{'type':'find'},function(res){
-				console.log(JSON.parse(res));
 				console.log(res);
-				self.ssitems=JSON.parse(res);
+				//res为空
+				if(!res){
+					return false;
+				}
+				res=JSON.parse(res);
+				// 求总数量
+				for(var i=0 ;i<res.length;i++){
+					self.sum+=parseInt(res[i].num);
+				}
+				// 求总金额
+				for(var i=0 ;i<res.length;i++){
+					self.sumPrice+=parseInt(res[i].num)*parseInt(res[i].price);
+				}
+				self.ssitems=res;
 			})
 		}
 	}
