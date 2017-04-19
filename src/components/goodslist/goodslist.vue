@@ -1,7 +1,7 @@
 <template>
   <div class="big">
     <div class="goodsTop"><i class="back"></i>MEN/T恤&POLO衫/短袖印花T恤</div>
-    <select>
+    <select v-model="range">
       <option>全部颜色展开</option>
       <option>全部款式展开</option>
     </select>
@@ -10,14 +10,14 @@
         <li v-for="(key,index) in source" :index=key.goodsId>
           <router-link :to="'/detail/'+key.goodsId">
           <img :src=key.goodsImg>
-          <div><span v-for="key1 in size[index]">{{key1}}</span></div>
+          <div><span v-for="key1 in size[index]" class="rangeShow">{{key1}}</span></div>
           <p>{{key.goodsName}}</p>
           <p>{{key.goodsPrice}}</p>
           </router-link>
         </li>
       </ul>
     </div>
-    <div class="goToTop" style="display: none" @click="goToTop"><i></i></div>
+    <div class="goToTop" style="display:none" @click="goToTop"><i></i></div>
   </div>
 </template>
 
@@ -30,7 +30,8 @@
     data:function(){
       return {
         source:'',
-        size:[]
+        size:[],
+        range:'全部款式展开'
       }
     },
     methods:{
@@ -59,6 +60,13 @@
           $('.goToTop').attr('style','display:none');
         }
       })
+    },
+    updated:function(){
+      if(this.range=='全部颜色展开'){
+        $('.rangeShow').attr('style','display:none');
+      }else{
+        $('.rangeShow').attr('style','display:inline-block');
+      }
     }
   }
 </script>
