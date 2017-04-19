@@ -97,7 +97,7 @@ body,li,ul{padding: 0;margin:0;font-family: '微软雅黑';list-style: none}
 .listAll{
   width:100%;
   top:20%;
-  position: absolute;
+  margin: 0 0 10px 0;
   background:#ebebeb;
   font-size: 16px;
 }
@@ -147,4 +147,39 @@ body,li,ul{padding: 0;margin:0;font-family: '微软雅黑';list-style: none}
 .listTo{
   padding: 8px;
   background:#f0f0f0;
+}
+#search-container{
+  height: 45px;
+  margin: 10px 15px 0 10px;
+  font-size: 12.5px;
+}
+
+#search-container .search-input{
+  float: left;
+  width: 80%;
+}
+#search-container .search-input div {
+  border: 2px solid #eee;
+  border-radius: 4px;
+  height: 35px;
+}
+#search-container .search-input div input{
+  width: 97%;
+  outline: 0;
+  border: none;
+  margin:4px 2px 4px 6px;
+  font-size: 16px;
+}
+#search-container .search-btn{
+    height: 20px;
+    width: 20px;
+    background: url("http://localhost:8080/dist/btn-search.png?83a9278dbea243162b80404de23e5b8b") no-repeat;
+    background-size: 20px;
+    margin-top: 7px;
+    margin-right: 10px;
+    margin-left: 20px;
+    display: inline-block;
+}
+.make1{
+  margin-top: 10px;
 }

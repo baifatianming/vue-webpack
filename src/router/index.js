@@ -6,10 +6,9 @@ import indexComponent from '../components/index/indexComponent.vue'
 import LoginComponent from '../components/login/LoginComponent.vue'
 
 import commentComponent from '../components/comment/commentComponent.vue'
-import goodslist from '../components/goodslist/goodslist.vue'
-
+import goodslistComponent from '../components/goodslist/goodslist.vue'
+import collectionComponent from '../components/collection/collectionComponent.vue'
 Vue.use(VueRouter)
-console.log(indexComponent)
 const router = new VueRouter({
 	routes: [{
 		path: '/',
@@ -25,8 +24,12 @@ const router = new VueRouter({
     component:commentComponent
   },{
     path:'/goodslist',
-    name:'/goodslist',
-    component:goodslist
+    name:'goodslist',
+    component:goodslistComponent
+  },{
+    path:'/collection',
+    name:'collection',
+    component:collectionComponent
   }]
 })
 

@@ -4,29 +4,45 @@
       <div class="clear">
         <a id="logo"></a>
         <div id="searchBox">
-          <a class="search-icon"></a>
+          <a class="search-icon" @click="searchShow"></a>
         </div>
       </div>
     </header>
     <nav id="main-nav">
+
       <ul class="clear listType">
         <li v-for="(key,index) in listAll"><span class="ui-btn" @click='goToShow' :index="index">{{key}}</span></li>
       </ul>
+
+
+      <div id="search-container"  v-bind:style="styleObj">
+        <div class="search-input">
+          <div>
+            <input type="text" />
+          </div>
+        </div>
+        <div class="search-btn">
+          <a class="search-icon"></a>
+        </div>
+      </div>
+
+
       <ul class="clear listAll" v-if="show">
-        <li class="goA" @click="gotoGoods"><router-link to="/goodslist" >NEW!{{sex}}上新&爆款<i class="go"></i></router-link></li>
+        <li class="goA" @click.stop="gotoGoods"><router-link to="/goodslist" >NEW!{{sex}}上新&爆款<i class="go"></i></router-link></li>
         <li @click.stop="goToshow1" v-for="(key,index) in listClassify"><i class="up"></i>{{key.name}}
           <ul class="hide">
-            <li class="goA list_li" v-for="key1 in key.item" @click="gotoGoods"><router-link to="#">{{key1}}<i class="go"></i></router-link></li>
+            <li class="goA list_li" v-for="key1 in key.item" @click="gotoGoods"><router-link to="/goodslist">{{key1}}<i class="go"></i></router-link></li>
           </ul>
         </li>
       </ul>
     </nav>
+
   </div>
 </template>
 
 <script type="text/javascript">
-  import '../css/commentComponent.css'
-
+  import '../css/commentComponent1.css';
+  import $ from 'jquery'
   export default {
     name:'header',
     data:function(){
@@ -44,22 +60,39 @@
         ],
         show:false,
         sex:'',
-        index:''
+        index:'',
+        styleObj:{
+          display:'none'
+        }
       }
     },
     methods:{
       goToShow:function(e){
         if(this.index == e.target.attributes.index.value){
-          console.log(1);
-          this.show==true? this.show=false:this.show=true;
+          if($('.listAll').attr('style')=='display:none'){
+            this.show=true;
+            $('.listAll').attr('style','display:block');
+          }else{
+            this.show==true? this.show=false:this.show=true;
+          }
+
+          if(this.show==true){
+            $('.big').attr('style','display:none');
+          }else{
+            $('.big').attr('style','display:block');
+          }
           this.sex=e.target.innerHTML;
           this.index=e.target.attributes.index.value;
         }else{
           this.show=true;
+          if(this.show==true){
+            $('.big').attr('style','display:none');
+          }else{
+            $('.big').attr('style','display:block');
+          }
           this.sex=e.target.innerHTML;
           this.index=e.target.attributes.index.value;
         }
-
       },
       goToshow1:function(e){
         if(e.target.children[1]!=undefined){
@@ -70,7 +103,11 @@
       gotoGoods:function(){
         console.log(1);
         this.show=false;
-      }
-    }
-  }
+        $('.big').attr('style','display:block');
+      },
+      searchShow:function(){
+       this.styleObj.display == 'none' ? this.styleObj.display ='block' : this.styleObj.display = 'none';
+     }
+   }
+ }
 </script>

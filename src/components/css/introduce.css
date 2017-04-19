@@ -1,6 +1,8 @@
 #introduce{
   background:#F8F8F8;
   box-sizing: border-box;
+  /*position:absolute;*/
+  /*bottom:30px;*/
 }
 #introduce .introduceTop{
   width: 100%;
