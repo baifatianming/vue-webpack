@@ -125,7 +125,17 @@
 				// console.log(this.$refs.input.focus())
 			},
 			setAdd:function(){
-				// console.log(222222222)
+				var mesg=this.$refs.input.value.replace(/(^\s*)|(\s*$)/g,"");
+				//增加地址
+				if(!mesg){
+					alert("地址不能空");
+					return false;
+				}
+				$.post('php/goodscart.php',{'type':'setAdd','address':mesg},function(res){
+					console.log(res);
+					window.location.reload();
+				})
+
 			}
 		},
 		computed:{

@@ -65,6 +65,18 @@
 			$con->close();
 			return false;
 		}
+		// 购物车增加收获地址
+		if($_POST['type']=='setAdd'){
+			$str1=$_POST['address'];
+			$sql="update user set address='".$str1."' where userName='".$username."'";
+			if($con->query($sql)){
+			    echo "修改地址成功";
+			    //关闭数据库
+			    $con->close();
+			    return false;
+			}
+			
+		}
 		if($result['goodsMsg']){//用户购物车有信息，是一个数组
 			// 1、判断goodId是否存在，存在，修改数量
 			$arrGoods=json_decode($result['goodsMsg']);
