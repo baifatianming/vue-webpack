@@ -3,11 +3,10 @@
 </template>
 
 <script type="text/javascript">
-
-	export default {
-		name: 'index',
-		data: function(){
-			return {}
-		}
-	}
+  export default {
+    name: 'index',
+    data: function(){
+     return {}
+   }
+ }
 </script>
