@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <div class="goToTop" style="display:none" @click="goToTop"><i></i></div>
+
   </div>
 </template>
 
@@ -32,11 +32,6 @@
         source:'',
         size:[],
         range:'全部款式展开'
-      }
-    },
-    methods:{
-      goToTop:function(){
-        $(document).scrollTop(0);
       }
     },
     created:function(){

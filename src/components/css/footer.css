@@ -44,3 +44,19 @@
   float:left;
   width: 20%;
 }
+#footer .goToTop{
+  width:20px;
+  height:20px;
+  position:fixed;
+  bottom:50px;
+  left:50%;
+  transform: translateX(-50%);
+  background:#999;
+}
+#footer .goToTop i{
+  display: inline-block;
+  width: 20px;
+  height:20px;
+  background: url(../../imgs/top.png) no-repeat center;
+  background-size: 100%;
+}
