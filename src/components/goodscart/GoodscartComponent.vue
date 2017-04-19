@@ -10,7 +10,7 @@
 					<strong>单价：￥{{item.price}}</strong>
 					<div class="mesg clear">
 						<em @click="modify(--item.num,item.goodsId)">-</em>
-						<input type="number" v-model:value="item.num">
+						<input type="text" v-model:value="item.num">
 						<em @click="modify(++item.num,item.goodsId)">+</em>
 					</div>
 				</div>
@@ -22,7 +22,7 @@
 				<strong>总金额￥{{sumPrice}}元</strong>
 			</span>
 		</ul>
-		<button >结算</button>
+		<button @click="buy()">{{des}}</button>
 	</div>
 </template>
 
@@ -37,6 +37,7 @@
 		name: 'home',
 		data: function(){
 			return {
+				des:'结算',
 				sum:0,
 				sumPrice:0,
 				ssitems:[],
@@ -91,24 +92,37 @@
 				$.post('php/goodscart.php',{'type':'remove',"goodsId":goodsId},function(res){
 					console.log(res);
 				})
+			},
+			buy:function(){
+				var self=this;
+				if(this.sum==0){
+					alert('请先添加商品');
+					return false;
+				}
+				this.des="正在结算...";
+				$.post('php/goodscart.php',{'type':'buy'},function(res){
+					console.log(res);
+					self.ssitems=[];//清空页面
+					self.des="结算";
+				})
 			}
 		},
 		computed:{
-			items:{
-				get:function(){
+			// items:{
+			// 	get:function(){
 					
-					$.post('php/goods.php',{'type':'find'},function(res){
-						console.log(JSON.parse(res));
-						console.log(res);
-						return res;
-					})
-					return res;
+			// 		$.post('php/goods.php',{'type':'find'},function(res){
+			// 			console.log(JSON.parse(res));
+			// 			console.log(res);
+			// 			return res;
+			// 		})
+			// 		return res;
 
-				},
-				set:function(newVal){
+			// 	},
+			// 	set:function(newVal){
 
-				}
-			}
+			// 	}
+			// }
 		},
 		created:function(){
 			var self=this;

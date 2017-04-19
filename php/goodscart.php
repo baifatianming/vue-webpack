@@ -62,6 +62,19 @@
 			$arrGoods=json_decode($result['goodsMsg']);
 			// gettype( $result['goodsMsg'] );
 			// return false;
+			if($_POST['type']=='buy'){
+				//此处是用户结算，清空购物车
+				unset($arrGoods);
+				//修改后存进数据库
+				$str1='';
+				$sql="update user set goodsMsg='".$str1."' where userName='".$username."'";
+				if($con->query($sql)){
+				    echo "true";
+				    return false;
+				}
+				return false;
+
+			}
 			$flag=true;
 			for($i=0;$i<count($arrGoods);$i++){
 				if($arrGoods[$i]->goodsId==$_POST['goodsId']){
