@@ -50,6 +50,14 @@
 		$result=$res->fetch_assoc();
 		// print_r( $result['goodsMsg'] );//得到货物信息字段
 
+		if($_POST['type']=='person'){
+			$arr = array();
+			array_push($arr,$result['userName']);
+			array_push($arr,$result['address']);
+			array_push($arr,$result['phone']);
+			print_r(json_encode($arr));
+			return false;
+		}
 		if($_POST['type']=='find'){
 			//此时，客户端请求购物车信息加载，只需要返回数据则可
 			print_r( $result['goodsMsg'] );

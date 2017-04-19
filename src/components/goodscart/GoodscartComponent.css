@@ -16,6 +16,20 @@ ul{
 	margin: 5px;
 
 }
+.person{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin: 5px;
+}
+.person p{
+	text-align: left;
+
+}
+.person input{
+	border: 1px solid black;
+
+}
 .clear:after{
 	content: "";
 	display: block;
@@ -81,7 +95,7 @@ ul{
 .footer strong{
 	float: right;
 }
-button{	
+.goodscart>button{	
 	font-size: 20px;
 	color: white!important;
 	font-weight: bold;

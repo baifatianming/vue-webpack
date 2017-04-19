@@ -1,6 +1,16 @@
 <template>
 	<div class="goodscart" >
 		<h1>购物车</h1>
+		<div class="person" v-if="personMesg[1]==''">
+			<h2 @click="address()">请添加地址+</h2>
+			<input type="text" v-if="show" placeholder="请输入地址" ref="input">
+			<button v-if="show" @click="setAdd()">确定</button>
+		</div>
+		<div class="person" v-if="personMesg[1]">
+			<p>收货人：{{personMesg[0]}}</p>
+			<p>收货地址：{{personMesg[1]}}</p>
+			<p>联系电话：{{personMesg[2]}}</p>
+		</div>
 		<ul class="clear">
 				<h2 v-if="!ssitems[0]">你的购物车是空的</h2>
 			<li v-for="(item, index) in ssitems">
@@ -25,7 +35,7 @@
 		<button @click="buy()">{{des}}</button>
 	</div>
 </template>
-
+<!-- v-for="(item, index) in personMesg" -->
 <script type="text/javascript">
 	import http from '../../utils/HttpClient'
 	import axios from '../../js/axios.min'
@@ -37,10 +47,12 @@
 		name: 'home',
 		data: function(){
 			return {
+				show:false,
 				des:'结算',
 				sum:0,
 				sumPrice:0,
 				ssitems:[],
+				personMesg:[],
 				name: 'Tom',
 				psw: 123456
 			}
@@ -105,6 +117,15 @@
 					self.ssitems=[];//清空页面
 					self.des="结算";
 				})
+			},
+			address:function(){
+				this.show=!this.show;
+				// this.show==true?this.$refs.input.focus():'';
+				// this.$refs.input.focus();
+				// console.log(this.$refs.input.focus())
+			},
+			setAdd:function(){
+				// console.log(222222222)
 			}
 		},
 		computed:{
@@ -125,6 +146,7 @@
 			// }
 		},
 		created:function(){
+			//页面刷新从数据库加载购物车信息
 			var self=this;
 			$.post('php/goodscart.php',{'type':'find'},function(res){
 				console.log(res);
@@ -142,6 +164,12 @@
 					self.sumPrice+=parseInt(res[i].num)*parseInt(res[i].price);
 				}
 				self.ssitems=res;
+			})
+
+			$.post('php/goodscart.php',{'type':'person'},function(res){
+				res=JSON.parse(res);
+				self.personMesg=res;
+				// console.log(typeof res)
 			})
 		}
 	}
