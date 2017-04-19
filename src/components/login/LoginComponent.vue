@@ -50,42 +50,46 @@
 
 				var username=this.name;
 				var psw=this.psw;
-				// var params = new URLSearchParams();
-				// params.append('username', username);
-				// params.append('psw', psw);
+				var params = new URLSearchParams();
+				params.append('username', username);
+				params.append('psw', psw);
 				// console.log(params)
-				// axios.get('php/login.php',params).then(function(response){
-				// 	console.log(response);
-				// 	document.write(response.data);
-				// 	if(response.data=='登录成功'){
-				// 		alert('登录成功');
-				// 	}
-				// 	else{
-				// 		alert('检查用户名密码是否正确');
-				// 	}
-				// })
-				// .catch(function(error){//客户端出错才会进入这
-				// 	document.write(error);
-				// 	console.log(1212);
-				// })
+				axios.post('http://localhost/123/chengyi/lativ/php/login.php',params).then(function(response){
+					console.log(response);
+					// document.write(response.data);
+					if(response.data=='登录成功'){
+						alert('登录成功');
+						// 设置localstorage储存用户登录状态
+						window.localStorage.setItem("username",username);
+						console.log(window.localStorage.getItem("username"));
+					}
+					else{
+						alert('检查用户名密码是否正确');
+					}
+				})
+				.catch(function(error){//客户端出错才会进入这
+					document.write(error);
+					console.log(1212);
+				})
 
+				
 
-				$.ajax({
-					url: 'php/login.php',
-					type: 'post',
-					dataType: 'json',
-					data: {'username': username,'psw':psw},
-				})
-				.done(function(success) {
-					console.log(success);
-				})
-				.fail(function(error) {
-					console.log(error);
-					document.write(error.responseText);
-				})
-				.always(function() {
-					console.log("complete");
-				});
+				// $.ajax({
+				// 	url: 'http://localhost/123/chengyi/lativ/php/login.php',
+				// 	type: 'post',
+				// 	dataType: 'json',
+				// 	data: {'username': username,'psw':psw},
+				// })
+				// .done(function(success) {
+				// 	console.log(success);
+				// })
+				// .fail(function(error) {
+				// 	console.log(error);
+				// 	document.write(error.responseText);
+				// })
+				// .always(function() {
+				// 	console.log("complete");
+				// });
 				
 			}
 		}

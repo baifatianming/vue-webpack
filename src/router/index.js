@@ -4,9 +4,11 @@ import http from '../utils/HttpClient'
 
 import indexComponent from '../components/index/indexComponent.vue'
 import LoginComponent from '../components/login/LoginComponent.vue'
+import goodslistComponent from '../components/goodslist/goodslist.vue'
 import RegisterComponent from '../components/register/RegisterComponent.vue'
 import GoodscartComponent from '../components/goodscart/GoodscartComponent.vue'
 import commentComponent from '../components/comment/commentComponent.vue'
+import collectionComponent from '../components/collection/collectionComponent.vue'
 
 Vue.use(VueRouter)
 
@@ -16,21 +18,26 @@ const router = new VueRouter({
 		name: 'index',
 		component: indexComponent
 	},{
-		path: '/register',
-		name: 'register',
-		component: RegisterComponent
-	},{
 		path: '/login',
 		name: 'login',
 		component: LoginComponent
 	},{
-		path: '/goodscart',
-		name: 'goodscart',
-		component: GoodscartComponent
-	},{
     path:'/comment',
     name:'comment',
     component:commentComponent
+  },{
+    path:'/cart',
+    name:'home',
+    component:GoodscartComponent
+  }
+  ,{
+    path:'/goodslist',
+    name:'goodslist',
+    component:goodslistComponent
+  },{
+    path:'/collection',
+    name:'collection',
+    component:collectionComponent
   }]
 })
 

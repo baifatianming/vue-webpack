@@ -40,6 +40,10 @@
 					axios.post('login.php',params).then(function(response){
 						if(response.data=='登录成功'){
 							alert('登录成功')
+							//设置localstorage储存用户登录状态
+							window.localStorage.setItem("username",username);
+							console.log(window.localStorage.getItem("username"));
+
 						}
 						else{
 							alert('检查用户名密码是否正确');

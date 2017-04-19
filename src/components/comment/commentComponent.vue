@@ -38,9 +38,10 @@
     created:function(){
       var self = this;
       $.ajax({
-        url:'http://localhost/lativ/php/comment.php',
+        url:'http://localhost/123/chengyi/lativ/php/comment.php',
         type:'GET',
         success:function(msg){
+          console.log(msg);
           self.data = JSON.parse(msg);
         }
       })

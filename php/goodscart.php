@@ -3,26 +3,29 @@
 	// 		$_SESSION['username']= $_REQUEST['username'];//获取当前发送过来的值
 	// 		$str= $_SESSION['username'];//只能获取第一次发送过来的值
 	// }
+	header("Access-Control-Allow-Origin: *");
+	// session_start();
+	// // session_destroy(); //销毁session
+	// // $_SESSION['username']='hallo';
 
-	session_start();
-	// session_destroy(); //销毁session
-	// $_SESSION['username']='hallo';
-
-	//检查session，判断用户是否登录
-	$bool=false;
-	if(isset($_SESSION['username'])){
-		$username= $_SESSION['username'];
-		$bool=true;
-	}
-	else{
-		$str= false;   //"还没有seesion的值";
-		echo 'false';
-		return false;
-	}
+	// //检查session，判断用户是否登录
+	// $bool=false;
+	// if(isset($_SESSION['username'])){
+	// 	$username= $_SESSION['username'];
+	// 	$bool=true;
+	// }
+	// else{
+	// 	$str= false;   //"还没有seesion的值";
+	// 	echo 'false';
+	// 	return false;
+	// }
 	// $arr1 = array( );
 	// array_push($arr1,$str);
 	// print_r(json_encode($arr1));
 
+	// 下面两行代码是由于采用了localstorage储存用户登录状态（跨域，session无法共享）
+	$bool=true;
+	$username=$_POST['username'];
 	if($bool){
 		// 创建一个类
 		class Goods{  

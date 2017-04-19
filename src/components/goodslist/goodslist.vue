@@ -41,9 +41,10 @@
     created:function(){
       var self = this;
       $.ajax({
-        url:'http://localhost/lativ/php/goodslist.php',
+        url:'http://localhost/123/chengyi/lativ/php/goodslist.php',
         type:'GET',
         success:function(res){
+          console.log(res);
           var resObj = JSON.parse(res);
           for(var i=0;i<resObj.length;i++){
             var sizeArr = resObj[i].size.split(',');

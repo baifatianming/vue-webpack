@@ -75,7 +75,7 @@
 					start+=parseInt(this.ssitems[i].num)*parseInt(this.ssitems[i].price);
 				}
 				this.sumPrice =start;
-				$.post('php/goodscart.php',{'type':'modify','num':num,"goodsId":goodsId},function(res){
+				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'modify','num':num,"goodsId":goodsId,'username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 				})
 
@@ -101,7 +101,7 @@
 					}
 				}
 				this.ssitems=arr;
-				$.post('php/goodscart.php',{'type':'remove',"goodsId":goodsId},function(res){
+				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'remove',"goodsId":goodsId,'username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 				})
 			},
@@ -112,7 +112,7 @@
 					return false;
 				}
 				this.des="正在结算...";
-				$.post('php/goodscart.php',{'type':'buy'},function(res){
+				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'buy','username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 					self.ssitems=[];//清空页面
 					self.des="结算";
@@ -131,7 +131,7 @@
 					alert("地址不能空");
 					return false;
 				}
-				$.post('php/goodscart.php',{'type':'setAdd','address':mesg},function(res){
+				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'setAdd','address':mesg,'username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 					window.location.reload();
 				})
@@ -158,7 +158,7 @@
 		created:function(){
 			//页面刷新从数据库加载购物车信息
 			var self=this;
-			$.post('php/goodscart.php',{'type':'find'},function(res){
+			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'find','username':window.localStorage.getItem("username")},function(res){
 				console.log(res);
 				//res为空
 				if(!res){
@@ -176,7 +176,7 @@
 				self.ssitems=res;
 			})
 
-			$.post('php/goodscart.php',{'type':'person'},function(res){
+			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'person','username':window.localStorage.getItem("username")},function(res){
 				res=JSON.parse(res);
 				self.personMesg=res;
 				// console.log(typeof res)
