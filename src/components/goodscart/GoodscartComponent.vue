@@ -162,12 +162,14 @@
 		created:function(){
 			//页面刷新从数据库加载购物车信息
 			var self=this;
+			var arrGoodsId=[];//存的是goodid
 			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'find','username':window.localStorage.getItem("username")},function(res){
 				console.log(res);
 				console.log( typeof res);
+				// console.log(JSON.parse(res[0].description));
 				//res为空
 				if(!res[4]){
-					return false;
+					return false;//查询到购物车没有数据停止
 				}
 				res=JSON.parse(res);
 				// 求总数量
@@ -177,12 +179,23 @@
 				// 求总金额
 				for(var i=0 ;i<res.length;i++){
 					self.sumPrice+=parseInt(res[i].num)*parseInt(res[i].price);
+					// console.log(res[i].goodsId);
+					arrGoodsId.push(res[i].goodsId);
 				}
 				self.ssitems=res;
+
+				$.post('http://localhost/123/chengyi/lativ/php/getDescription.php',{"arr":arrGoodsId}, function(data, textStatus, xhr) {
+					/*optional stuff to do after success */
+					console.log(data[0]);
+					var list=JSON.parse(data);
+					console.log(list[0]);
+
+
+				});
 			})
 
 			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'person','username':window.localStorage.getItem("username")},function(res){
-				console.log(res);
+				// console.log(res);
 				res=JSON.parse(res);
 				self.personMesg=res;
 				console.log(res)

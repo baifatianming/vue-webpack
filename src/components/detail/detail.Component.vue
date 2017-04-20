@@ -387,7 +387,14 @@
 				// console.log(event.target);
 				$(event.currentTarget).find('a').removeClass('current');
 				$(event.target).addClass('current');
-				this.size = $(event.target).html();
+				
+				if($(event.target).prop('tagName')=="A"){
+					this.size = $(event.target).text();
+				}else if($(event.target).prop('tagName')=="IMG"){
+					this.size = $(event.target).parent().text();
+				}
+
+				console.log(this.size )
 				$(event.currentTarget).find('img').remove();
 				$(event.target).append('<img src="../../../img/size_select.png">')
 			},
