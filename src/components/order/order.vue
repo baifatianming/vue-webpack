@@ -27,9 +27,9 @@
         <li><span>订单号:</span><span></span></li>
         <li><span>状态:</span><span></span></li>
       </ul>
-      <span class="orderListBtn">在线交谈</span>
-      <span class="orderListBtn">退货</span>
-      <span class="orderListBtn">评价</span>
+      <span class="orderListBtn" @click="orderShow">在线交谈</span>
+      <span class="orderListBtn" @click="orderShow">退货</span>
+      <span class="orderListBtn" @click="orderShow">评价</span>
     </div>
     <i></i>
   </div>
@@ -42,6 +42,11 @@
     name:'order',
     data:function(){
       return {}
+    },
+    methods:{
+      orderShow:function(){
+        alert('还未开通!')
+      }
     }
     }
 </script>
