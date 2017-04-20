@@ -1,7 +1,7 @@
 <template>
 	<div class="goodscart" >
 		<h1>购物车</h1>
-		<div class="person" v-if="personMesg[1]==''">
+		<div class="person" v-if="personMesg[1]==undefined">
 			<h2 @click="address()">请添加地址+</h2>
 			<input type="text" v-if="show" placeholder="请输入地址" ref="input">
 			<button v-if="show" @click="setAdd()">确定</button>
@@ -179,7 +179,7 @@
 			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'person','username':window.localStorage.getItem("username")},function(res){
 				res=JSON.parse(res);
 				self.personMesg=res;
-				// console.log(typeof res)
+				console.log(res)
 			})
 		}
 	}

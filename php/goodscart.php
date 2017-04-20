@@ -83,9 +83,40 @@
 		if($result['goodsMsg']){//用户购物车有信息，是一个数组
 			// 1、判断goodId是否存在，存在，修改数量
 			$arrGoods=json_decode($result['goodsMsg']);
+			$arrDoneGoods=json_decode($result['done']);//用户买过的商品
 			// gettype( $result['goodsMsg'] );
 			// return false;
 			if($_POST['type']=='buy'){
+				// 先把用户购物车的信息存进已完成的订单字段
+				if(!$arrDoneGoods){
+					//用户没有买过东西
+					$str2=json_encode($arrGoods);//直接把信息购物车信息存进去
+				}
+				else{
+					//循环比较两个数组对象
+					$len1=count($arrGoods);
+					$len2=count($arrDoneGoods);
+					$mark=true;
+					for($j=0;$j<$len1;$j++){
+						for($k=0;$k<$len2;$k++){
+							if($arrGoods[$j]->goodsId==$arrDoneGoods[$k]->goodsId){
+								$mark=false;
+								$num=$arrDoneGoods[$k]->num;
+								$arrDoneGoods[$k]->num=$num+$arrGoods[$j]->num;//已买过的货物修改数量
+							}
+						}
+						if($mark){
+							//购物车有没有买过的货物
+							array_push($arrDoneGoods,$arrGoods[$j]);
+						}
+					}
+					$str2=json_encode($arrDoneGoods);//修改完成
+				}
+				// 存进已完成字段
+				$sql="update user set done='".$str2."' where userName='".$username."'";
+				if($con->query($sql)){
+				    echo "准备发货";
+				}
 				//此处是用户结算，清空购物车
 				unset($arrGoods);
 				//修改后存进数据库
