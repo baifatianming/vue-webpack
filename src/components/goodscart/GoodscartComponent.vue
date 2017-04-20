@@ -1,6 +1,6 @@
 <template>
 	<div class="goodscart" >
-		<h1>购物车</h1>
+		<h1 class="sure">确认订单</h1>
 		<div class="person" v-if="personMesg[1]==undefined">
 			<h2 @click="address()">请添加地址+</h2>
 			<input type="text" v-if="show" placeholder="请输入地址" ref="input">

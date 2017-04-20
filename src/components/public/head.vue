@@ -2,7 +2,7 @@
   <div>
     <header id="main-header">
       <div class="clear">
-        <a id="logo"></a>
+        <a id="logo" href="/"></a>
         <div id="searchBox">
           <a class="search-icon" @click="searchShow"></a>
         </div>

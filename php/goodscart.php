@@ -53,6 +53,14 @@
 		$result=$res->fetch_assoc();
 		// print_r( $result['goodsMsg'] );//得到货物信息字段
 
+		if($_POST['type']=='order'){
+			
+			print_r( $result['done'] );
+			//关闭数据库
+			$con->close();
+			return false;
+
+		}
 		if($_POST['type']=='person'){
 			$arr = array();
 			array_push($arr,$result['userName']);
