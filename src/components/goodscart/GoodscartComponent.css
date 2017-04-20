@@ -68,8 +68,19 @@ ul{
 
 }
 .person input{
-	border: 1px solid black;
+	width: 70%;
+	border: 1px solid #aaa;
+	display: block;
+	margin-bottom: 2px;
 
+}
+.person button{
+	width: 50px;
+	padding: 2px 8px;
+	margin-left: 30%;
+	margin-bottom: 5px;
+	background: #f63;
+	color: white;
 }
 .clear:after{
 	content: "";

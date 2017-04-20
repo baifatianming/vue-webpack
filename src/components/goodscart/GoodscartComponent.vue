@@ -1,14 +1,17 @@
 <template>
 	<div class="goodscart" >
-		<span @click="changeAddress()"><img src="../../../img/go.png" alt=""></span>
+		<span @click="address()"><img src="../../../img/go.png" alt=""></span>
 		<a href="http://localhost:8080/#/goodslist"><img src="../../../img/prov.png" alt=""></a>
 		<h1 class="sure">确认订单</h1>
-		<div class="person" v-if="personMesg[1]==undefined">
+		<div class="person" v-if="personMesg[0]==undefined||personMesg[1]==undefined||personMesg[2]==undefined">
+		 
 			<h2 @click="address()">请添加地址+</h2>
-			<input type="text" v-if="show" placeholder="请输入地址" ref="input">
+			<!-- <input type="text" v-if="show" placeholder="请输入收货人" ref="input1"> -->
+			<input type="text" v-if="show" placeholder="请输入地址" ref="input2">
+			<input type="text" v-if="show" placeholder="请输入电话号码" ref="input3">
 			<button v-if="show" @click="setAdd()">确定</button>
 		</div>
-		<div class="person" v-if="personMesg[1]">
+		<div class="person" v-if="personMesg[0]&&personMesg[1]&&personMesg[2]">
 			<p>收货人：{{personMesg[0]}}</p>
 			<p>收货地址：{{personMesg[1]}}</p>
 			<p>联系电话：{{personMesg[2]}}</p>
@@ -110,6 +113,10 @@
 				})
 			},
 			buy:function(){
+				if(!this.personMesg[0]||!this.personMesg[1]||!this.personMesg[2]){
+					alert('请完善收货信息');
+					return false;
+				}
 				var self=this;
 				if(this.sum==0){
 					alert('请先添加商品');
@@ -131,22 +138,40 @@
 				// console.log(this.$refs.input.focus())
 			},
 			setAdd:function(){
-				var mesg=this.$refs.input.value.replace(/(^\s*)|(\s*$)/g,"");
+				// var rename=this.$refs.input1.value.replace(/(^\s*)|(\s*$)/g,"");
+				var readd=this.$refs.input2.value.replace(/(^\s*)|(\s*$)/g,"");
+				var rephone=this.$refs.input3.value.replace(/(^\s*)|(\s*$)/g,"");
+				var objRe={};
+				// objRe.rename=rename;
+				objRe.readd=readd;
+				objRe.rephone=rephone;
+				objRe.type="setAdd";
+				objRe.username=window.localStorage.getItem("username");
 				//增加地址
-				if(!mesg){
-					alert("地址不能空");
+				if(!readd||!rephone){
+					alert("信息不能空");
 					return false;
 				}
-				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'setAdd','address':mesg,'username':window.localStorage.getItem("username")},function(res){
+				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',objRe,function(res){
 					console.log(res);
-					window.location.reload();
+					// window.location.reload();
 				})
 
-			},
-			changeAddress:function(){
-				// console.log(22222222222)
-				// var changeName=prompt("请输入你的名字")
 			}
+			// ,
+			// changeAddress:function(){
+			// 	// console.log(22222222222)
+			// 	var changeName=prompt("请输入你的名字",'姓名').replace(/(^\s*)|(\s*$)/g,"");
+			// 	if(changeName){
+			// 		var changeAds=prompt("请输入你的地址",'地址').replace(/(^\s*)|(\s*$)/g,"");
+			// 		if(changeAds){
+			// 			var changePhone=prompt("请输入你的联系电话",'电话').replace(/(^\s*)|(\s*$)/g,"");
+			// 			if(changePhone){
+			// 				console.log(changePhone);
+			// 			}
+			// 		}
+			// 	}
+			// }
 		},
 		computed:{
 			// items:{

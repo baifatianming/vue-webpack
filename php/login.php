@@ -3,7 +3,7 @@
     // print_r($_SERVER['REQUEST_METHOD']);
     // print_r($_POST);
  //   if($_SERVER['REQUSET_METHOD'] )
-header("Access-Control-Allow-Origin: http://localhost:8080");
+header("Access-Control-Allow-Origin: *");
     $name = $_POST['username'];
     $psw = $_POST['psw'];
     //php数据库操作

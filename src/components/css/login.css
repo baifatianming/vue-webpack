@@ -1,0 +1,38 @@
+.loginContent{
+  width: 90%;
+  margin:auto;
+}
+.col-sm-10{
+  width:90%;
+  margin:auto;
+  text-align: center;
+}
+.logo{
+  display: inline-block;
+  width:30px;
+  height:30px;
+  background: url(../../imgs/logo.jpg) no-repeat center;
+  background-size: 100%;
+  position: absolute;
+  left:0;
+  top:50%;
+  transform: translateY(-50%);
+}
+.loginHeader{
+  height: 40px;
+  text-align: center;
+  line-height:40px;
+  border-bottom: 1px solid #dadada;
+  box-sizing: border-box;
+  margin:10px 0;
+  position: relative;
+  font-size: 25px;
+}
+.goToRegister{
+  width:90%;
+  margin:auto;
+}
+.goToRegister a{
+  float: right;
+  text-decoration: none;
+}

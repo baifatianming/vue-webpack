@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<div class="loginContent">
 		<form class="form-horizontal">
 		  <div class="form-group">
@@ -20,6 +20,32 @@
 		  </div>
 		</form>
 	</div>
+</template> -->
+
+<template>
+	<div class="loginContent clear">
+		<div class="loginHeader"><i class="logo"></i><span>登&nbsp;&nbsp;录</span></div>
+		<form class="form-horizontal">
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">用户名:</label>
+		    <div class="col-sm-10">
+		      <input class="form-control" v-model="name">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">密码:</label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control" v-model="psw">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		    	<input type="button" value="登录" class="btn btn-default" @click="login">
+		    </div>
+		  </div>
+		</form>
+		<div class="goToRegister clear"><router-link to="/register">还没有帐号？赶紧去注册</router-link></div>
+	</div>
 </template>
 
 <script type="text/javascript">
@@ -28,6 +54,7 @@
 	import $ from '../../js/jquery-3.1.1'
 	import VueRouter from '../../router/index'
 	import 'bootstrap/dist/css/bootstrap.min.css'
+	import '../css/login.css'
 
 	export default {
 		name: 'home',

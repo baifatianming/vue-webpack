@@ -79,10 +79,19 @@
 		}
 		// 购物车增加收获地址
 		if($_POST['type']=='setAdd'){
-			$str1=$_POST['address'];
-			$sql="update user set address='".$str1."' where userName='".$username."'";
-			if($con->query($sql)){
+			// $str1=$_POST['rename'];
+			$str2=$_POST['readd'];
+			$str3=$_POST['rephone'];
+			$sql2="update user set address='".$str2."' where userName='".$username."'";
+			$sql3="update user set phone='".$str3."' where userName='".$username."'";
+			if($con->query($sql2)){
 			    echo "修改地址成功";
+			    //关闭数据库
+			    // $con->close();
+			    // return false;
+			}
+			if($con->query($sql3)){
+			    echo "修改电话成功";
 			    //关闭数据库
 			    $con->close();
 			    return false;
