@@ -1,5 +1,6 @@
 <template>
 	<div class="goodscart" >
+		<span @click="changeAddress()"><img src="../../../img/go.png" alt=""></span>
 		<a href="http://localhost:8080/#/goodslist"><img src="../../../img/prov.png" alt=""></a>
 		<h1 class="sure">确认订单</h1>
 		<div class="person" v-if="personMesg[1]==undefined">
@@ -17,7 +18,7 @@
 			<li v-for="(item, index) in ssitems">
 				<img :src="item.imgSrc" alt="">
 				<div class="acbox clear">
-					<h3>{{item.description}}</h3>
+					<h3>{{despt[index]}}</h3>
 					<strong>单价：￥{{item.price}}</strong>
 					<div class="mesg clear">
 						<em @click="modify(--item.num,item.goodsId)">-</em>
@@ -49,6 +50,7 @@
 		name: 'home',
 		data: function(){
 			return {
+				despt:[],
 				show:false,
 				des:'结算',
 				sum:0,
@@ -140,6 +142,10 @@
 					window.location.reload();
 				})
 
+			},
+			changeAddress:function(){
+				// console.log(22222222222)
+				// var changeName=prompt("请输入你的名字")
 			}
 		},
 		computed:{
@@ -166,12 +172,12 @@
 			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'find','username':window.localStorage.getItem("username")},function(res){
 				console.log(res);
 				console.log( typeof res);
-				// console.log(JSON.parse(res[0].description));
 				//res为空
 				if(!res[4]){
 					return false;//查询到购物车没有数据停止
 				}
 				res=JSON.parse(res);
+				// console.log(JSON.parse(res[0].description));
 				// 求总数量
 				for(var i=0 ;i<res.length;i++){
 					self.sum+=parseInt(res[i].num);
@@ -186,10 +192,11 @@
 
 				$.post('http://localhost/123/chengyi/lativ/php/getDescription.php',{"arr":arrGoodsId}, function(data, textStatus, xhr) {
 					/*optional stuff to do after success */
-					console.log(data[0]);
+					console.log(data);
 					var list=JSON.parse(data);
-					console.log(list[0]);
-
+					console.log(list);
+					// console.log(list[0]);
+					self.despt=list;
 
 				});
 			})

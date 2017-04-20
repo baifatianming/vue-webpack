@@ -5,6 +5,12 @@ h3,ul,li,button{
 	padding: 0;
 	border:none;
 }
+.goodscart>span>img{
+	position: absolute;
+	z-index: 200;
+	top:80px;
+	right: 15px;
+}
 .goodscart a>img{
 	height: 20px;
 	position: absolute;

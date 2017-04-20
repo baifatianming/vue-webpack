@@ -17,7 +17,12 @@
 			
 		}
 	}
-	print_r( json_encode($arr) );
+	$arr2=array_unique($arr);
+	$arr3 = array();                //去除重复的goodid
+	foreach($arr2 as $key => $val){
+	 	array_push($arr3,$val);
+	}
+	print_r( json_encode($arr3) );
 
 	//关闭数据库
 	$con->close();
