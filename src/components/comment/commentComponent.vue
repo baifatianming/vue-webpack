@@ -1,8 +1,9 @@
 <template>
-  <div class="commentComponent big">
+  <div class="commentComponent">
+    <private-header></private-header>
+    <div class="big">
     <div id="main-content">
       <div class="product-comment">
-
         <router-link :to="{ name: 'comment', params: { id: item.indexID }}" v-for="item in data" style="text-decoration: none;">
           <div class="comment-template clear">
             <div class="comment-image">
@@ -18,33 +19,44 @@
             </div>
           </div>
         </router-link>
-
       </div>
     </div>
+    </div>
+    <private-introduce></private-introduce>
+    <private-footer></private-footer>
+
   </div>
 </template>
 
 <script type="text/javascript">
   import './commentComponent.css';
   import $ from 'jquery';
-
+  import url from '../../../baseUrl.js';
+  import '../../components/css/public.css'
+  import header from '../../components/public/head.vue';
+  import introduce from '../../components/public/bottom.vue';
+  import footer from '../../components/public/footer.vue'
   export default {
     name: 'comment',
     data: function(){
       return {
         data:[]
-        }
+      }
     },
     created:function(){
       var self = this;
       $.ajax({
-        url:'http://localhost/123/chengyi/lativ/php/comment.php',
+        url:url.baseUrl+'/php/comment.php',
         type:'GET',
         success:function(msg){
-          console.log(msg);
           self.data = JSON.parse(msg);
         }
       })
-    }
+    },
+    components:{
+    'private-header':header,
+    'private-introduce':introduce,
+    'private-footer':footer
+  }
   }
 </script>

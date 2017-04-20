@@ -62,6 +62,7 @@
 						// 设置localstorage储存用户登录状态
 						window.localStorage.setItem("username",username);
 						console.log(window.localStorage.getItem("username"));
+						window.location.href='http://localhost:8080/#/goodslist';
 					}
 					else{
 						alert('检查用户名密码是否正确');

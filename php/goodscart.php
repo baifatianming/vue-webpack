@@ -5,13 +5,13 @@
 	// }
 	header("Access-Control-Allow-Origin: *");
 	// session_start();
-	// // session_destroy(); //销毁session
-	// // $_SESSION['username']='hallo';
+	// session_destroy(); //销毁session
+	// $_SESSION['username']='hallo';
 
 	// //检查session，判断用户是否登录
 	// $bool=false;
 	// if(isset($_SESSION['username'])){
-	// 	$username= $_SESSION['username'];
+		// $username= $_SESSION['username'];
 	// 	$bool=true;
 	// }
 	// else{

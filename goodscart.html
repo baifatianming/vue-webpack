@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="number" v-model="num">
+        <button @click="check">click</button>
+		
+        <!-- <ul>
+        	<li>
+        		<img src="" alt="">
+        		<div>
+        			<h3>1212</h3>
+        			<strong>price</strong>
+        			<div>
+        				<em>-</em>
+        				<input type="number">
+        				<em>+</em>
+        			</div>
+        		</div>
+        		<span>delete</span>
+        	</li>
+        	<div>
+        		<span></span>
+        		<strong></strong>
+        	</div>
+        </ul> -->
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            num: 1
+        },
+        methods: {
+            check: function() {
+                // console.log(111)
+                // 检查session，不存在提示登录
+                // 如果session存在，检查数据库是否已经有用户信息，
+                // 有，就修改
+                // 没有，就添加
+                var obj = {
+                	"type":"add",
+                    "goodsId": "shhit",
+                    "num": 1,
+                    "description": "lobster",
+                    "imgSrc": "lobster",
+                    "price": 22,
+                    "color": "red",
+                    "size": "xxl"
+
+                };
+                if(window.localStorage.getItem("username")){
+                	console.log( window.localStorage.getItem("username") );
+                	obj.username=window.localStorage.getItem("username"); 
+                	$.post('http://localhost/123/chengyi/lativ/php/goodscart.php', obj, function(res) {
+                	        // console.log(typeof res);
+                	        console.log(res);
+                	        // if (res == 'false') {
+                	        //     alert('请登录');
+                	        //     return false;
+                	        // }
+
+                	    })
+                }
+               
+
+            },
+            add: function() {
+                // console.log(222)
+
+            }
+
+        }
+    })
+    </script>
+</body>
+
+</html>

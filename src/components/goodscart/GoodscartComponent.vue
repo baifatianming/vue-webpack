@@ -1,5 +1,6 @@
 <template>
 	<div class="goodscart" >
+		<a href="http://localhost:8080/#/goodslist"><img src="../../../img/prov.png" alt=""></a>
 		<h1 class="sure">确认订单</h1>
 		<div class="person" v-if="personMesg[1]==undefined">
 			<h2 @click="address()">请添加地址+</h2>
@@ -16,7 +17,7 @@
 			<li v-for="(item, index) in ssitems">
 				<img src="" alt="">
 				<div class="box clear">
-					<h3>1212</h3>
+					<h3>{{item.description}}</h3>
 					<strong>单价：￥{{item.price}}</strong>
 					<div class="mesg clear">
 						<em @click="modify(--item.num,item.goodsId)">-</em>
@@ -24,7 +25,7 @@
 						<em @click="modify(++item.num,item.goodsId)">+</em>
 					</div>
 				</div>
-				<span @click="remove(item.goodsId)">delete</span>
+				<span @click="remove(item.goodsId)"><img src="../../../img/delete.png" alt=""></span>
 			
 			</li>
 			<span class="footer">
@@ -33,6 +34,7 @@
 			</span>
 		</ul>
 		<button @click="buy()">{{des}}</button>
+		<!-- <button>返回商品</button> -->
 	</div>
 </template>
 <!-- v-for="(item, index) in personMesg" -->
@@ -112,9 +114,11 @@
 					return false;
 				}
 				this.des="正在结算...";
+				self.ssitems=[];//清空页面
+				self.sum=0;
+				self.sumPrice=0;
 				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'buy','username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
-					self.ssitems=[];//清空页面
 					self.des="结算";
 				})
 			},

@@ -1,3 +1,3 @@
 export default {
-  baseUrl:'http://localhost/lativ/'
+  baseUrl:'http://localhost/123/chengyi/lativ/'
 }
