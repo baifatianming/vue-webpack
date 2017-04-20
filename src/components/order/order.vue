@@ -1,6 +1,6 @@
 <template>
   <div class="big">
-    <div class="orderHeader clear"><i></i>我的订单</div>
+    <div class="orderHeader clear"><router-link to="/"><i></i>我的订单</router-link></div>
     <div class="orderMsg"><router-link to="/person"><i></i><span>个人信息</span><i></i></router-link></div>
     <div class="orderButton clear">
       <div class="active">
@@ -27,9 +27,9 @@
         <li><span>订单号:</span><span></span></li>
         <li><span>状态:已支付</span><span></span></li>
       </ul>
-      <span class="orderListBtn">在线交谈</span>
-      <span class="orderListBtn">退货</span>
-      <span class="orderListBtn">评价</span>
+      <span class="orderListBtn" @click="orderShow">在线交谈</span>
+      <span class="orderListBtn" @click="orderShow">退货</span>
+      <span class="orderListBtn" @click="orderShow">评价</span>
     </div>
     <i></i>
   </div>
@@ -56,6 +56,11 @@
           }
           console.log(typeof res)
         })
+    },
+    methods:{
+      orderShow:function(){
+        alert('还未开通!')
+      }
     }
 
     }

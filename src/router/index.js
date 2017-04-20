@@ -51,25 +51,33 @@ const router = new VueRouter({
 })
 
 //对将要进入的路由进行权判断
-// router.beforeEach((to, from, next) =>{
-// 	if(to.path != '/login'){
-// 		// http.get('./src/data/sesson.json')
-// 		// .then(response => {
-// 		// 	if(!response.login){
-// 		// 		router.replace('login');
-// 		// 	}
-// 		// 	next();
-// 		// })
-// 		// http.get('http://localhost:888/getsession')
-// 		// .then(response => {
-// 		// 	if(!response.name){
-// 		// 		router.replace('login');
-// 		// 	}
-// 		// 	next()
-// 		// });
-// 	} else {
-// 		// next();
-// 	}
-// })
+router.beforeEach((to, from, next) =>{
+//  // if(to.path != '/login'){
+//  //  // http.get('./src/data/sesson.json')
+//  //  // .then(response => {
+//  //  //  if(!response.login){
+//  //  //    router.replace('login');
+//  //  //  }
+//  //  //  next();
+//  //  // })
+//  //  // http.get('http://localhost:888/getsession')
+//  //  // .then(response => {
+//  //  //  if(!response.name){
+//  //  //    router.replace('login');
+//  //  //  }
+//  //  //  next()
+//  //  // });
+//  // } else {
+//  //  // next();
+//  // }
+if(to.path == '/collection'){
+    if(window.localStorage.length > 0){
+      next();
+    }else{
+      router.replace('login')
+    }
+}
+ next();
+})
 
 export default router
