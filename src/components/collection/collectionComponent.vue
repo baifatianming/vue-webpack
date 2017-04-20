@@ -34,10 +34,14 @@ import $ from 'jquery'
     var userData = {username:username};
     var self = this;
       $.ajax({
-        url:'http://localhost/lativ/php/collection.php',
+        url:'http://localhost/123/chengyi/lativ/php/collection.php',
         type:'GET',
         data:userData,
         success:function(msg){
+          if(msg=='没有数据'){
+            alert('没有收藏');
+            return false;
+          }
           self.data = JSON.parse(msg);
         }
       });
@@ -49,7 +53,7 @@ import $ from 'jquery'
       var id = $(e.target).attr('id');
       var data = {id:id}
       $.ajax({
-        url:'http://localhost/lativ/php/delete.php',
+        url:'http://localhost/123/chengyi/lativ/php/delete.php',
         type:'POST',
         data:data
       })

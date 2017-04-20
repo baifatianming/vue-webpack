@@ -11,14 +11,15 @@ import commentComponent from '../components/comment/commentComponent.vue'
 import collectionComponent from '../components/collection/collectionComponent.vue'
 import orderComponent from '../components/order/order.vue'
 import personComponent from '../components/person/person.vue'
+import DetailComponent from '../components/detail/detail.Component.vue'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
 	routes: [{
-		path: '/',
-		name: 'index',
-		component: indexComponent
-	},{
+    path:'/',
+    name:'index',
+    component:indexComponent
+  },{
 		path: '/login',
 		name: 'login',
 		component: LoginComponent
@@ -47,7 +48,13 @@ const router = new VueRouter({
     path:'/person',
     name:'person',
     component:personComponent
-  }]
+  }
+  ,{
+    path:'/detail/:id',
+    name:'detail',
+    component:DetailComponent
+  }
+  ]
 })
 
 //对将要进入的路由进行权判断

@@ -1,15 +1,6 @@
 <?php
-// $conn = new mysqli("127.0.0.1", "root", "", "dazhong") or die("连接失败:" . $conn->connect_error);
-//     $sql = "select * from books2";
-// $jsonData = array();
-//  $result = $conn->query($sql);
-//  if($result){
-//     while($obj = mysqli_fetch_object($result)){
-//       $jsonData[] = $obj;
-//     }
-//     mysqli_free_result($result);
-//  }
 header("Access-Control-Allow-Origin: http://localhost:8080");
+
 class Comments{
     public $indexID;
     public $content;
@@ -23,7 +14,7 @@ class Comments{
 }
 
     //连接数据库
-$conn = new mysqli("127.0.0.1","root","","lativ") or die("连接失败!");
+$conn = new mysqli("127.0.0.1","root",'',"pro") or die("连接失败!");
 
     $conn->query("set names utf8"); //设置编码为utf8
 
@@ -54,5 +45,3 @@ $conn = new mysqli("127.0.0.1","root","","lativ") or die("连接失败!");
     $conn->close();
 
     ?>
-
-

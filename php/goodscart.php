@@ -47,6 +47,7 @@
 		// $con = new mysqli('127.0.0.1','root','','pro'); 
 		mysqli_query($con,"set names 'utf8'");
 		$sql = "select * from user where userName='".$username."'";
+		mysqli_query($con,"set names 'utf8'");
 		$res = $con->query($sql);
 		// print_r( json_encode($res->num_rows) );
 		// print_r( json_encode( $res->fetch_assoc() ) );//得到用户信息字段
@@ -54,7 +55,7 @@
 		// print_r( $result['goodsMsg'] );//得到货物信息字段
 
 		if($_POST['type']=='order'){
-			
+
 			print_r( $result['done'] );
 			//关闭数据库
 			$con->close();
@@ -156,7 +157,17 @@
 						//此时是在购物车详情删除商品
 						// $arrGoods[$i]->num=$_POST['num'];
 						array_splice($arrGoods, $i, 1);//删除数组中下标是i的元素
-						echo "删除成功";
+						if(count($arrGoods)==0){
+							$str1='';
+						}
+						else{
+							$str1=json_encode($arrGoods);
+						}
+						$sql="update user set goodsMsg='".$str1."' where userName='".$username."'";
+						if($con->query($sql)){
+						    echo "删除成功";
+						    return false;
+						}
 					}
 					//修改后存进数据库
 					$str1=json_encode($arrGoods);

@@ -7,7 +7,7 @@ h3,ul,li,button{
 }
 .goodscart a>img{
 	height: 20px;
-	position: fixed;
+	position: absolute;
 	z-index: 200;
 	top:10px;
 	left: 15px;
@@ -24,7 +24,7 @@ h3,ul,li,button{
 	width: 90%;
 	/*height: 40px;*/
 	background: white;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
@@ -99,31 +99,34 @@ ul{
 .mesg input{
 	text-align: center!important;
 	float: left;
-	width: 20px;
+	width: 30px;
 	height: 20px;
 }
 .mesg em{
+	text-align: center!important;
 	float: left;
-	font-size: 20px;
+	/*font-size: 20px;*/
 	width: 20px;
-	line-height: 20px;
+	line-height: 20px!important;
 	height: 20px;
 	border: 1px solid #ccc;
 	font-style: normal;
 }
-.box{
+.acbox{
 	padding-left: 10px;
 	float: left;
 }
-.box h3{
+.acbox h3{
 	/*float: left;*/
 	text-align: left;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	width: 150px;
+	font-size: 12px;
+	padding: 8px 0;
 }
-.box strong{
+.acbox strong{
 	display: block;
 	text-align: left;
 }

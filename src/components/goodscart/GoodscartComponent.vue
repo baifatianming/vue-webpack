@@ -15,8 +15,8 @@
 		<ul class="clear">
 				<h2 v-if="!ssitems[0]">你的购物车是空的</h2>
 			<li v-for="(item, index) in ssitems">
-				<img src="" alt="">
-				<div class="box clear">
+				<img :src="item.imgSrc" alt="">
+				<div class="acbox clear">
 					<h3>{{item.description}}</h3>
 					<strong>单价：￥{{item.price}}</strong>
 					<div class="mesg clear">
@@ -164,8 +164,9 @@
 			var self=this;
 			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'find','username':window.localStorage.getItem("username")},function(res){
 				console.log(res);
+				console.log( typeof res);
 				//res为空
-				if(!res){
+				if(!res[4]){
 					return false;
 				}
 				res=JSON.parse(res);
@@ -181,6 +182,7 @@
 			})
 
 			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'person','username':window.localStorage.getItem("username")},function(res){
+				console.log(res);
 				res=JSON.parse(res);
 				self.personMesg=res;
 				console.log(res)

@@ -9,9 +9,24 @@
 
 <script>
 import './components/css/public.css'
-import header from './components/public/head.vue';
-import introduce from './components/public/bottom.vue';
-import footer from './components/public/footer.vue'
+import equipType from './components/index/equipMonitor.js';
+var equipM = new equipType();
+// var str = JSON.stringify(equipM.monitor());
+// console.log(equipM.monitor().mobile)
+
+if(equipM.monitor().mobile)
+{
+  var header = require('./components/public/head.vue');
+  var introduce = require('./components/public/bottom.vue');
+  var footer = require('./components/public/footer.vue')
+}
+else if(!equipM.monitor().mobile)
+{
+  console.log(1);
+  var header = require('./components/public/head_pc.vue')
+  // var introduce = require('./components/public/bottom_pc.vue');
+  // var footer = require('./components/public/footer_pc.vue')
+}
 export default {
   name: 'app',
   data () {
@@ -20,7 +35,7 @@ export default {
     }
   },
   components:{
-    // 'private-header':header,
+    'private-header':header,
     // 'private-introduce':introduce,
     // 'private-footer':footer
   },
