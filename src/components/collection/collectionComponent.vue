@@ -5,23 +5,14 @@
       <h1>我的收藏</h1>
     </div>
     <div id="col-content">
-      <div class="col-list">
-        <div class="col-goods">
+      <div class="col-list clear">
+        <div class="col-goods" v-for="item in data">
           <a>
-            <img src="../../../img/comment/2.jpg" />
-            <p>下腰貘法体操T恤-男</p>
-            <p>￥ 59</p>
+            <img v-bind:src="item.CollectionImg" />
+            <p>{{item.CollectionName}}</p>
+            <p>￥ {{item.CollectionPrice}}</p>
           </a>
-          <img src="../../../img/delete.png" alt="" class="delete">
-
-        </div>
-        <div class="col-goods">
-          <a>
-            <img src="../../../img/comment/2.jpg" />
-            <p>下腰貘法体操T恤-男</p>
-            <p>￥ 59</p>
-          </a>
-            <img src="../../../img/delete.png" alt="" class="delete">
+          <img src="../../../img/delete.png" alt="" class="delete" v-on:click="remove" :id="item.indexID">
         </div>
       </div>
     </div>
@@ -29,11 +20,41 @@
 </template>
 
 <script type="text/javascript">
-import './collectionComponent.css'
+import './collectionComponent.css';
+import $ from 'jquery'
  export default {
   name:'collection',
   data:function(){
-    return {}
+    return {
+        data:[]
+      }
+  },
+  created:function(){
+    var username = window.localStorage.username;
+    var userData = {username:username};
+    var self = this;
+      $.ajax({
+        url:'http://localhost/lativ/php/collection.php',
+        type:'GET',
+        data:userData,
+        success:function(msg){
+          self.data = JSON.parse(msg);
+        }
+      });
+  },
+  methods:{
+    remove:function(e){
+      $(e.target).parent().remove();
+
+      var id = $(e.target).attr('id');
+      var data = {id:id}
+      $.ajax({
+        url:'http://localhost/lativ/php/delete.php',
+        type:'POST',
+        data:data
+      })
+    }
   }
  }
+
 </script>

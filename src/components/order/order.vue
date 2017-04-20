@@ -1,6 +1,6 @@
 <template>
   <div class="big">
-    <div class="orderHeader clear"><i></i>我的订单</div>
+    <div class="orderHeader clear"><router-link to="/"><i></i>我的订单</router-link></div>
     <div class="orderMsg"><router-link to="/person"><i></i><span>个人信息</span><i></i></router-link></div>
     <div class="orderButton clear">
       <div class="active">
