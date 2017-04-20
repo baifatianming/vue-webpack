@@ -1,6 +1,6 @@
 <template>
   <div class="big">
-    <div class="goodsTop"><i class="back"></i>MEN/T恤&POLO衫/短袖印花T恤</div>
+    <div class="goodsTop"><router-link to="/"><i class="back"></i>MEN/T恤&POLO衫/短袖印花T恤</router-link></div>
     <select v-model="range">
       <option>全部颜色展开</option>
       <option>全部款式展开</option>

@@ -8,6 +8,8 @@ import LoginComponent from '../components/login/LoginComponent.vue'
 import commentComponent from '../components/comment/commentComponent.vue'
 import goodslistComponent from '../components/goodslist/goodslist.vue'
 import collectionComponent from '../components/collection/collectionComponent.vue'
+import orderComponent from '../components/order/order.vue'
+import personComponent from '../components/person/person.vue'
 Vue.use(VueRouter)
 const router = new VueRouter({
 	routes: [{
@@ -30,6 +32,14 @@ const router = new VueRouter({
     path:'/collection',
     name:'collection',
     component:collectionComponent
+  },{
+    path:'/order',
+    name:'order',
+    component:orderComponent
+  },{
+    path:'/person',
+    name:'person',
+    component:personComponent
   }]
 })
 
