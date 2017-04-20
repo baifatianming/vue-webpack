@@ -23,20 +23,31 @@
 .personalMsg{
   width: 90%;
   margin:auto;
+  box-sizing: border-box;
 }
-.personalMsg span,p{
+.personalMsg div{
+  margin:0 0 10px 0;
+  box-sizing: border-box;
+}
+.personalMsg span,.personalMsg p{
   font-size: 18px;
   color:#adadad;
+  margin:0 0 5px 0;
 }
 .personalMsg input{
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid #dadada;
 }
 .personalMsg .personalPsd{
   width: 100%;
 }
-.personalMsg .personalBtn1{
+.personalAdress{
+  width:90%;
+  margin:auto;
+}
+.personalBtn1{
   margin:auto;
   width: 90%;
   text-align: center;
+  margin-bottom:10px;
 }

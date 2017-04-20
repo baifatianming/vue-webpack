@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <private-header></private-header>
+    <!-- <private-header></private-header> -->
     <router-view></router-view>
-    <private-introduce></private-introduce>
-    <private-footer></private-footer>
+    <!-- <private-introduce></private-introduce> -->
+    <!-- <private-footer></private-footer> -->
   </div>
 </template>
 
@@ -20,9 +20,9 @@ export default {
     }
   },
   components:{
-    'private-header':header,
-    'private-introduce':introduce,
-    'private-footer':footer
+    // 'private-header':header,
+    // 'private-introduce':introduce,
+    // 'private-footer':footer
   },
 }
 </script>
