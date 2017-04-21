@@ -397,7 +397,10 @@
 
 				console.log(this.size )
 				$(event.currentTarget).find('img').remove();
-				$(event.target).append('<img src="../../../img/size_select.png">')
+				if($(event.target).prop('tagName')=="A"){
+
+					$(event.target).append('<img src="../../../img/size_select.png">')
+				}
 			},
 			addon:function(event){
 				if($(event.target).hasClass('on')){
