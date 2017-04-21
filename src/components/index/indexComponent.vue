@@ -24,7 +24,7 @@
 			</div>	
 			
 		</div>
-		<private-introduce></private-introduce>
+		<!-- <private-introduce></private-introduce> -->
     	<private-footer></private-footer>
 		</div>	
 </template>
