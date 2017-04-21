@@ -67,6 +67,10 @@
 		},
 		methods:{
 			modify:function(num,goodsId){
+				if(num<1){
+					alert('数量不能小于0');
+					return false;
+				}
 				//修改总数量
 				var init=0
 				for(var i=0 ;i<this.ssitems.length;i++){
@@ -130,6 +134,7 @@
 				$.post(url.baseUrl+'php/goodscart.php',{'type':'buy','username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 					self.des="结算";
+					alert('成功结算');
 				})
 			},
 			address:function(){
