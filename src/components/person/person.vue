@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="personalHeader clear"><i></i>个人信息</div>
+  <div class="personalHeader clear"><router-link to="/order"><i></i></router-link>个人信息</div>
   <div class="personalMsg">
     <div><span>姓&nbsp;&nbsp;名:</span><input type="text"></div>
     <div><span>邮&nbsp;&nbsp;箱:</span><input type="text"></div>
