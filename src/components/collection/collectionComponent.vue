@@ -1,7 +1,7 @@
 <template>
   <div class="collectionComponent">
     <div id="col-header">
-      <a class="col-prov"></a>
+      <a class="col-prov" href="http://localhost:8080/#/"></a>
       <h1>我的收藏</h1>
     </div>
     <div id="col-content">

@@ -44,6 +44,7 @@
            data: obj,
            success:function(res){
             console.log(res);
+            window.location.href="http://localhost:8080/#/login";
           },
           error:function(res){
             console.log(res)
