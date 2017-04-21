@@ -48,7 +48,7 @@
       var self = this;
       $.ajax({
         
-        url:'http://localhost/123/chengyi/lativ/php/goodslist.php',
+        url:url.baseUrl+'php/goodslist.php',
         type:'GET',
         success:function(res){
           console.log(res);
