@@ -40,6 +40,7 @@
   import header from '../../components/public/head.vue';
   import introduce from '../../components/public/bottom.vue';
   import footer from '../../components/public/footer.vue'
+  import equipType from './equipMonitor.js';
 	  export default {
 	    data(){
 	     return {
@@ -165,6 +166,18 @@
 					/* Act on the event */
 					self.location='http://localhost:8080/#/goodslist';
 				});
+				var equipM = new equipType()
+				if(equipM.monitor().mobile)
+				{
+					
+					var a = $('.box').index();
+					console.log(gap);
+					$('.box').eq(a).css({
+						'margin-bottom': gap+50+'px'
+					});
+					var t = $('.box').eq(a).css('margin-bottom');
+					console.log(t);
+				}
 
 		   	},500)
 	   	    },
