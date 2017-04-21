@@ -4,3 +4,8 @@ dist/
 npm-debug.log
 yarn-error.log
 /node_modules
+/sql/goodsmsg.sql
+/sql/lativ.sql
+/sql/collection.sql
+/sql/comment.sql
+/sql/goodlist.sql
