@@ -316,6 +316,7 @@
  	import header from '../../components/public/head.vue';
   	import introduce from '../../components/public/bottom.vue';
   	import footer from '../../components/public/footer.vue'
+  	import url from '../../../baseUrl.js'
 	export default {
 		name:'detail',
 		data:function(){
@@ -461,7 +462,7 @@
 				};
 				console.log(obj.description);
 				$.ajax({
-					url: 'http://localhost/123/chengyi/lativ/php/goodscart.php',
+					url: url.baseUrl+'php/goodscart.php',
 					type: 'POST',
 					dataType: 'json',
 					data: obj,
@@ -484,7 +485,7 @@
 			this.goodsId = goodsId;
 			// console.log(goodsId);
 			$.ajax({
-				url: 'http://localhost/123/chengyi/lativ/php/detail.php',
+				url: url.baseUrl+'php/detail.php',
 				type: 'GET',
 				dataType: 'json',
 				data: {goodid: goodsId},

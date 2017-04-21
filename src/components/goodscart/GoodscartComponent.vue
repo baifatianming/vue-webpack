@@ -48,6 +48,7 @@
 	import $ from '../../js/jquery-3.1.1'
 	import VueRouter from '../../router/index'
 	import './GoodscartComponent.css'
+	import url from '../../../baseUrl.js'
 
 	export default {
 		name: 'home',
@@ -82,7 +83,7 @@
 					start+=parseInt(this.ssitems[i].num)*parseInt(this.ssitems[i].price);
 				}
 				this.sumPrice =start;
-				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'modify','num':num,"goodsId":goodsId,'username':window.localStorage.getItem("username")},function(res){
+				$.post(url.baseUrl+'php/goodscart.php',{'type':'modify','num':num,"goodsId":goodsId,'username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 				})
 
@@ -108,7 +109,7 @@
 					}
 				}
 				this.ssitems=arr;
-				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'remove',"goodsId":goodsId,'username':window.localStorage.getItem("username")},function(res){
+				$.post(url.baseUrl+'php/goodscart.php',{'type':'remove',"goodsId":goodsId,'username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 				})
 			},
@@ -126,7 +127,7 @@
 				self.ssitems=[];//清空页面
 				self.sum=0;
 				self.sumPrice=0;
-				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'buy','username':window.localStorage.getItem("username")},function(res){
+				$.post(url.baseUrl+'php/goodscart.php',{'type':'buy','username':window.localStorage.getItem("username")},function(res){
 					console.log(res);
 					self.des="结算";
 				})
@@ -152,9 +153,9 @@
 					alert("信息不能空");
 					return false;
 				}
-				$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',objRe,function(res){
+				$.post(url.baseUrl+'php/goodscart.php',objRe,function(res){
 					console.log(res);
-					// window.location.reload();
+					window.location.reload();
 				})
 
 			}
@@ -194,7 +195,7 @@
 			//页面刷新从数据库加载购物车信息
 			var self=this;
 			var arrGoodsId=[];//存的是goodid
-			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'find','username':window.localStorage.getItem("username")},function(res){
+			$.post(url.baseUrl+'php/goodscart.php',{'type':'find','username':window.localStorage.getItem("username")},function(res){
 				console.log(res);
 				console.log( typeof res);
 				//res为空
@@ -215,7 +216,7 @@
 				}
 				self.ssitems=res;
 
-				$.post('http://localhost/123/chengyi/lativ/php/getDescription.php',{"arr":arrGoodsId}, function(data, textStatus, xhr) {
+				$.post(url.baseUrl+'php/getDescription.php',{"arr":arrGoodsId}, function(data, textStatus, xhr) {
 					/*optional stuff to do after success */
 					console.log(data);
 					var list=JSON.parse(data);
@@ -226,7 +227,7 @@
 				});
 			})
 
-			$.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'person','username':window.localStorage.getItem("username")},function(res){
+			$.post(url.baseUrl+'php/goodscart.php',{'type':'person','username':window.localStorage.getItem("username")},function(res){
 				// console.log(res);
 				res=JSON.parse(res);
 				self.personMesg=res;

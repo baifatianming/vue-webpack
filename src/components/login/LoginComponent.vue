@@ -52,6 +52,7 @@
 	import http from '../../utils/HttpClient'
 	import axios from '../../js/axios.min'
 	import $ from '../../js/jquery-3.1.1'
+	import url from '../../../baseUrl.js'
 	import VueRouter from '../../router/index'
 	import 'bootstrap/dist/css/bootstrap.min.css'
 	import '../css/login.css'
@@ -81,7 +82,7 @@
 				params.append('username', username);
 				params.append('psw', psw);
 				// console.log(params)
-				axios.post('http://localhost/123/chengyi/lativ/php/login.php',params).then(function(response){
+				axios.post(url.baseUrl+'php/login.php',params).then(function(response){
 					console.log(response);
 					// document.write(response.data);
 					if(response.data=='登录成功'){

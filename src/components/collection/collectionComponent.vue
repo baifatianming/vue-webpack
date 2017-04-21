@@ -22,6 +22,7 @@
 <script type="text/javascript">
 import './collectionComponent.css';
 import $ from 'jquery'
+import url from '../../../baseUrl.js'
  export default {
   name:'collection',
   data:function(){
@@ -34,7 +35,7 @@ import $ from 'jquery'
     var userData = {username:username};
     var self = this;
       $.ajax({
-        url:'http://localhost/123/chengyi/lativ/php/collection.php',
+        url:url.baseUrl+'php/collection.php',
         type:'GET',
         data:userData,
         success:function(msg){
@@ -53,7 +54,7 @@ import $ from 'jquery'
       var id = $(e.target).attr('id');
       var data = {id:id}
       $.ajax({
-        url:'http://localhost/123/chengyi/lativ/php/delete.php',
+        url:url.baseUrl+'php/delete.php',
         type:'POST',
         data:data
       })

@@ -39,6 +39,7 @@
   import '../css/public.css';
   import '../css/order.css'
   import $ from '../../js/jquery-3.1.1'
+  import url from '../../../baseUrl.js'
   export default {
     name:'order',
     data:function(){
@@ -49,7 +50,7 @@
     },
     created:function(){
         var self=this;
-        $.post('http://localhost/123/chengyi/lativ/php/goodscart.php',{'type':'order','username':window. localStorage.getItem("username")},function(res){
+        $.post(url.baseUrl+'php/goodscart.php',{'type':'order','username':window. localStorage.getItem("username")},function(res){
           var res=JSON.parse(res);
           for(var i=0;i<res.length;i++){
               self.init+=parseInt(res[i].num);//已完成订单全部数量

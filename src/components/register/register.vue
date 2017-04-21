@@ -23,6 +23,7 @@
   import '../css/public.css'
   import '../css/register.css'
   import $ from 'jquery'
+  import url from '../../../baseUrl.js'
   export default {
     name:'register',
     data:function(){
@@ -37,7 +38,7 @@
         }
         if( obj.username!='' && obj.password!=''){
           $.ajax({
-           url: 'http://localhost/123/chengyi/lativ/php/register.php',
+           url: url.baseUrl+'php/register.php',
            type: 'GET',
            dataType: 'json',
            data: obj,

@@ -36,6 +36,7 @@
   import header from '../../components/public/head.vue';
   import introduce from '../../components/public/bottom.vue';
   import footer from '../../components/public/footer.vue'
+  import url from '../../../baseUrl.js'
   export default {
     name: 'comment',
     data: function(){
@@ -47,7 +48,7 @@
     created:function(){
       var self = this;
       $.ajax({
-        url:'http://localhost/123/chengyi/lativ/php/comment.php',
+        url:url.baseUrl+'php/comment.php',
         type:'GET',
         success:function(msg){
           self.data = JSON.parse(msg);
@@ -62,7 +63,7 @@
         if($(window).scrollTop()==$(document).height()-$(window).height() ){
           setTimeout(function(){
             $.ajax({
-            url:'http://localhost/123/chengyi/lativ/php/comment.php',
+            url:url.baseUrl+'php/comment.php',
             type:'GET',
             success:function(msg){
               for(let i = 0;i < self.culm ;i++){
