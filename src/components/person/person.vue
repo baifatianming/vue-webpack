@@ -2,8 +2,8 @@
 <div>
   <div class="personalHeader clear"><router-link to="/order"><i></i></router-link>个人信息</div>
   <div class="personalMsg">
-    <div><span>姓&nbsp;&nbsp;名:</span><input type="text"></div>
-    <div><span>邮&nbsp;&nbsp;箱:</span><input type="text"></div>
+    <div><span>地&nbsp;&nbsp;址:</span><input type="text"></div>
+    <div><span>电&nbsp;&nbsp;话:</span><input type="text"></div>
     <div><p>密&nbsp;&nbsp;码:</p><input type="password" class="personalPsd"></div>
     <div><p>密码确认:</p><input type="password" class="personalPsd"></div>
   </div>

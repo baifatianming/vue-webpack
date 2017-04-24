@@ -452,6 +452,10 @@
 			addShopcar:function(event){
 				var username=window.localStorage.getItem("username");
 				// console.log(this)
+				if(!this.imgSrc||!this.size||!this.quantity){
+					alert('请选择商品信息');
+					return false;
+				}
 				const obj = {
 					"type":"add",
 					"goodsId":this.goodsId,
@@ -471,9 +475,11 @@
 					data: obj,
 					success:function(res){
 						console.log(res);
+						alert('加入购物车成功');
 					},
 					error:function(res){
 						console.log(res)
+						alert('加入购物车成功');
 					}
 				})
 				

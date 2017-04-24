@@ -5,17 +5,17 @@
   <div class="big">
     <div id="main-content">
       <div class="product-comment">
-        <router-link :to="'/detail/'+item.indexID" v-for="item in data" style="text-decoration: none;">
+        <router-link :to="'/detail/'+item.indexID" key="item.indexID" v-for="item in data" style="text-decoration: none;">
           <div class="comment-template clear">
             <div class="comment-image">
-              <img v-bind:src="item.img"/>
+              <img v-bind:src="item.img" key="item.img"/>
             </div>
             <div class="comment-container">
-              <div class="comment-order">订单后四位：<span>{{item.order}} - {{item.address}}</span></div>
-              <div class="comment-content">{{item.content}}</div>
+              <div class="comment-order">订单后四位：<span key="item.order">{{item.order}} - {{item.address}}</span></div>
+              <div class="comment-content" key="item.content">{{item.content}}</div>
               <div class="comment-info">
-                <span comment-product-info>{{item.size}}</span>
-                <span class="comment-time">{{item.time}}</span>
+                <span comment-product-info key="item.size">{{item.size}}</span>
+                <span class="comment-time" key="item.time">{{item.time}}</span>
               </div>
             </div>
           </div>
