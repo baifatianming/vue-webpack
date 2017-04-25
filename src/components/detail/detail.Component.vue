@@ -451,6 +451,10 @@
 			},
 			addShopcar:function(event){
 				var username=window.localStorage.getItem("username");
+				if(!username){
+					alert('请先登录');
+					return false;
+				}
 				// console.log(this)
 				if(!this.imgSrc||!this.size||!this.quantity){
 					alert('请选择商品信息');
