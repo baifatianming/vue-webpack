@@ -179,7 +179,7 @@
 					console.log(t);
 				}
 
-		   	},500)
+		   	},1000)
 	   	    },
 		mounted(){
 			setTimeout(function(){

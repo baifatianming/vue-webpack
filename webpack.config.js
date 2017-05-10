@@ -52,5 +52,9 @@ module.exports = {
   },
   performance: {
     hints: false
-  }
+  },
+  plugins: [
+    //代码压缩
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 }
