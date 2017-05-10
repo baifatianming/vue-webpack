@@ -7,7 +7,7 @@
     $phone = $_POST['phone'];
     $psw = $_POST['psw'];
     //php数据库操作
-    $con = new mysqli('127.0.0.1','root','','pro'); //准备好数据连接对象
+    $con = new mysqli('127.0.0.1','root','root','pro'); //准备好数据连接对象
     //插入注册用户的数据
  //   $sql = 'insert into users (username,password,age) values("'.$name.'","'.$psw.'","'.$age.'")';//sql 语句；
    // if( $con->query($sql) ){

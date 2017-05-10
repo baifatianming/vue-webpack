@@ -1,6 +1,6 @@
 <?php
 	header("Access-Control-Allow-Origin: *");
-	$con = new mysqli('127.0.0.1','root','','pro'); 
+	$con = new mysqli('127.0.0.1','root','root','pro'); 
 	// $con = new mysqli('127.0.0.1','root','','pro'); 
 	mysqli_query($con,"set names 'utf8'");
 	$sql = "select * from goodsmsg";

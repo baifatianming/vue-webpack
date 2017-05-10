@@ -43,7 +43,7 @@
 		// 没有，就添加
 		// $con = new mysqli('bdm274246623.my3w.com','bdm274246623','aA852233','bdm274246623_db'); 
 		header("Access-Control-Allow-Origin: *");
-		$con = new mysqli('127.0.0.1','root','','pro'); 
+		$con = new mysqli('127.0.0.1','root','root','pro'); 
 		// $con = new mysqli('127.0.0.1','root','','pro'); 
 		mysqli_query($con,"set names 'utf8'");
 		$sql = "select * from user where userName='".$username."'";

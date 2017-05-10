@@ -1,4 +1,7 @@
+
 1、先npm install
 2、新建pro数据库
 3、导入sql文件
-4、npm run dev,打开相应端口
+4. 更改baseUrl里面的路径
+5. 更改php连接mysql的参数.默认('127.0.0.1','root','root','pro')
+6、npm run dev,打开相应端口,或者直接双击run.bat文件
